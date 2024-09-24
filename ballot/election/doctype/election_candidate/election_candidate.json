@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-24 23:48:19.118415",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "election",
+  "column_break_wols",
+  "linked_application",
+  "candidate_info_section",
+  "full_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "election",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Election",
+   "options": "Election",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wols",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_application",
+   "fieldtype": "Data",
+   "label": "Linked Application"
+  },
+  {
+   "fieldname": "candidate_info_section",
+   "fieldtype": "Section Break",
+   "label": "Candidate Info"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-25 00:32:24.850355",
+ "modified_by": "Administrator",
+ "module": "Election",
+ "name": "Election Candidate",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
