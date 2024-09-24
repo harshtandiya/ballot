@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-25 00:56:35.397021",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question",
+  "response",
+  "column_break_omwm",
+  "fieldtype",
+  "fieldname"
+ ],
+ "fields": [
+  {
+   "fieldname": "question",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Question",
+   "reqd": 1
+  },
+  {
+   "fieldname": "response",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Response",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_omwm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fieldtype",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldtype",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "fieldname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldname",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-25 00:59:10.544580",
+ "modified_by": "Administrator",
+ "module": "Ballot",
+ "name": "Ballot Custom Answer",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
