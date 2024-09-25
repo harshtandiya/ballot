@@ -12,6 +12,7 @@
   "status",
   "details_section",
   "full_name",
+  "photo",
   "column_break_jysv",
   "email",
   "section_break_lodj",
@@ -87,11 +88,16 @@
    "fieldtype": "Table",
    "label": "Form Response",
    "options": "Ballot Custom Answer"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 01:12:28.741558",
+ "modified": "2024-09-25 13:27:59.293940",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate Application",
