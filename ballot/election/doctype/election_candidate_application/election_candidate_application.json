@@ -44,7 +44,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Pending\nAccept\nReject",
+   "options": "Pending\nAccepted\nRejected",
+   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -97,7 +98,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 13:27:59.293940",
+ "modified": "2024-09-25 15:33:27.269689",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate Application",
@@ -114,10 +115,47 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "if_owner": 1,
+   "read": 1,
+   "role": "All",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Election Team Member",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Election Team Member",
+   "share": 1,
+   "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Pending"
+  },
+  {
+   "color": "Green",
+   "title": "Accepted"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ],
  "track_changes": 1
 }
