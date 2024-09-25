@@ -33,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 00:32:32.370242",
+ "modified": "2024-09-25 15:04:04.425105",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election",
@@ -50,6 +50,13 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Election Team Member",
    "write": 1
   }
  ],
