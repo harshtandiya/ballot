@@ -47,8 +47,14 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-09-25 13:18:52.341082",
+ "links": [
+  {
+   "group": "Votes",
+   "link_doctype": "Candidate Vote",
+   "link_fieldname": "candidate"
+  }
+ ],
+ "modified": "2024-09-25 22:28:02.173368",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate",
