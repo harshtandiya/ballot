@@ -26,8 +26,10 @@
   },
   {
    "fieldname": "linked_application",
-   "fieldtype": "Data",
-   "label": "Linked Application"
+   "fieldtype": "Link",
+   "label": "Linked Application",
+   "options": "Election Candidate Application",
+   "reqd": 1
   },
   {
    "fieldname": "candidate_info_section",
@@ -35,6 +37,8 @@
    "label": "Candidate Info"
   },
   {
+   "fetch_from": "linked_application.full_name",
+   "fetch_if_empty": 1,
    "fieldname": "full_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -44,7 +48,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 00:32:24.850355",
+ "modified": "2024-09-25 13:18:52.341082",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate",
