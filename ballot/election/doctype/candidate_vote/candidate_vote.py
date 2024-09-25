@@ -6,17 +6,14 @@ from frappe.model.document import Document
 
 
 class CandidateVote(Document):
-	def before_insert(self):
-		if self.has_already_voted():
-			frappe.throw("You have already voted in this candidate", frappe.ValidationError)
+    def before_insert(self):
+        if self.has_already_voted():
+            frappe.throw("You have already voted in this candidate", frappe.ValidationError)
 
-	def has_already_voted(self):
-		has_already_voted = frappe.db.exists(
-			"Candidate Vote",
-			{
-				"vote_by": self.vote_by,
-				"election": self.election
-			},
-		)
+    def has_already_voted(self):
+        has_already_voted = frappe.db.exists(
+            "Candidate Vote",
+            {"vote_by": self.vote_by, "election": self.election},
+        )
 
-		return bool(has_already_voted)
+        return bool(has_already_voted)

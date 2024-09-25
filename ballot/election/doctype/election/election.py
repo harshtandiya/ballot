@@ -6,4 +6,4 @@ from frappe.model.document import Document
 
 
 class Election(Document):
-	pass
+    pass
