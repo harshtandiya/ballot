@@ -6,6 +6,10 @@ app_email = "harsh@fossunited.org"
 app_license = "mit"
 # required_apps = []
 
+website_route_rules = [
+    {"from_route": "/ballot/<path:app_path>", "to_route": "ballot"},
+]
+
 # Includes in <head>
 # ------------------
 
@@ -98,37 +102,6 @@ app_license = "mit"
 
 # notification_config = "ballot.notifications.get_notification_config"
 
-# Permissions
-# -----------
-# Permissions evaluated in scripted ways
-
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
-
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
-
-# Document Events
-# ---------------
-# Hook on document methods and events
-
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
 
 # Scheduled Tasks
 # ---------------

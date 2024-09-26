@@ -5,3 +5,7 @@
 tags
 node_modules
 __pycache__
+
+ballot/public/dist
+ballot/public/frontend
+ballot/www/frontend.html
