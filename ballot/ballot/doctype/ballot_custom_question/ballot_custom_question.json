@@ -1,53 +1,48 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2024-09-25 00:52:32.941055",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "question",
-  "column_break_wfyl",
-  "fieldtype",
-  "fieldname"
- ],
- "fields": [
-  {
-   "fieldname": "question",
-   "fieldtype": "Text",
-   "in_list_view": 1,
-   "label": "Question",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_wfyl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "fieldtype",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Fieldtype",
-   "options": "Data\nSelect\nText\nLong Text\nText Editor\nNumber\nFloat",
-   "reqd": 1
-  },
-  {
-   "fieldname": "fieldname",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Fieldname"
-  }
- ],
- "index_web_pages_for_search": 1,
- "istable": 1,
- "links": [],
- "modified": "2024-09-25 01:05:07.614817",
- "modified_by": "Administrator",
- "module": "Ballot",
- "name": "Ballot Custom Question",
- "owner": "Administrator",
- "permissions": [],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2024-09-25 00:52:32.941055",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": ["question", "column_break_wfyl", "fieldtype", "fieldname"],
+  "fields": [
+    {
+      "fieldname": "question",
+      "fieldtype": "Text",
+      "in_list_view": 1,
+      "label": "Question",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_wfyl",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "fieldtype",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Fieldtype",
+      "options": "Data\nSelect\nText\nLong Text\nText Editor\nNumber\nFloat",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fieldname",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Fieldname"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "istable": 1,
+  "links": [],
+  "modified": "2024-09-25 01:05:07.614817",
+  "modified_by": "Administrator",
+  "module": "Ballot",
+  "name": "Ballot Custom Question",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
 }

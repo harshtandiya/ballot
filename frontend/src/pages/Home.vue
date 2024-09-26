@@ -4,7 +4,13 @@
       Welcome {{ session.user }}!
     </h2>
 
-    <Button theme="gray" variant="solid" icon-left="code" @click="ping.fetch" :loading="ping.loading">
+    <Button
+      theme="gray"
+      variant="solid"
+      icon-left="code"
+      :loading="ping.loading"
+      @click="ping.fetch"
+    >
       Click to send 'ping' request
     </Button>
     <div>
@@ -18,7 +24,7 @@
     </div>
 
     <!-- Dialog -->
-    <Dialog title="Title" v-model="showDialog"> Dialog content </Dialog>
+    <Dialog v-model="showDialog" title="Title"> Dialog content </Dialog>
   </div>
 </template>
 
