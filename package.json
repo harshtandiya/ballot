@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd frontend && yarn install",
     "dev": "cd frontend && yarn dev",
-    "build": "cd frontend && yarn build"
+    "build": "cd frontend && yarn build",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,10 @@
     "@eslint/js": "^9.11.1",
     "eslint": "^9.11.1",
     "eslint-plugin-vue": "^9.28.0",
-    "globals": "^15.9.0"
-  }
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {}
 }
