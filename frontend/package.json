@@ -9,9 +9,12 @@
     "copy-html-entry": "cp ../ballot/public/frontend/index.html ../ballot/www/frontend.html"
   },
   "dependencies": {
+    "@primevue/themes": "^4.1.0",
     "@tabler/icons-vue": "^3.19.0",
     "feather-icons": "^4.28.0",
     "frappe-ui": "^0.1.70",
+    "primevue": "^4.1.0",
+    "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.5.11",
     "vue-router": "^4.4.5"
   },
