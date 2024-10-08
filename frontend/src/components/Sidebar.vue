@@ -3,7 +3,7 @@
     class="relative block min-h-0 flex-shrink-0 overflow-hidden hover:overflow-auto"
   >
     <div
-      class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-gray-50 p-4"
+      class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-primary-50 p-4"
     >
       <div class="flex flex-col gap-4">
         <div class="mb-3">
