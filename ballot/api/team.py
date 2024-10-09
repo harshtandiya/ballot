@@ -34,9 +34,10 @@ def get_user_teams(user: str):
 
     for member in member_docs:
         team = frappe.db.get_value(
-            "Election Team", member["parent"], ["name", "team_name"], as_dict=1
+            "Election Team", member["parent"], ["name", "team_name", "owner"], as_dict=1
         )
         team.update({"members": get_member_details(member["parent"])})
+        team.update({"owner_name": get_team_owner(team.name, user)})
         teams.append(team)
 
     return teams
@@ -66,3 +67,24 @@ def get_member_details(team: str):
         members.append(user)
 
     return members
+
+
+def get_team_owner(team: str, user: str = None):
+    """
+    Get the owner name of the team.
+
+    Args:
+        team: team ID
+
+    Return:
+        owner name or "You" if the session user is the owner.
+    """
+
+    owner = frappe.db.get_value("Election Team", team, "owner")
+
+    owner_details = get_user_details(owner)
+
+    if user and owner == user:
+        return "You"
+
+    return owner_details["full_name"]

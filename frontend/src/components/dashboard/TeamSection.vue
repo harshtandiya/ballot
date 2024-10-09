@@ -17,12 +17,7 @@
       <span class="text-sm text-gray-700">You are not part of any team.</span>
     </div>
     <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-3">
-      <Card
-        v-for="(team, index) in teams.data"
-        :key="index"
-        :title="team.team_name"
-        class="hover:border-gray-700 transition-colors cursor-pointer"
-      />
+      <TeamCard v-for="(team, index) in teams.data" :key="index" :team="team" />
     </div>
   </div>
 </template>
@@ -30,6 +25,7 @@
 import { inject, ref } from 'vue'
 import { createResource } from 'frappe-ui'
 import CreateTeamDialog from '@/components/dashboard/CreateTeamDialog.vue'
+import TeamCard from '@/components/dashboard/TeamCard.vue'
 
 const session = inject('$session')
 const showDialog = ref(false)
