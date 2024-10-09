@@ -6,7 +6,15 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    redirect: { name: 'Dashboard' },
     component: () => import('@/pages/Home.vue'),
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/pages/Dashboard.vue'),
+      },
+    ],
   },
 ]
 
