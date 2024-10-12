@@ -146,6 +146,8 @@ class TestElectionCandidateApplication(IntegrationTestCase):
 
         with self.assertRaises(frappe.PermissionError):
             self.application.save()
+
+        frappe.set_user('Administrator')
         _team.delete(force=1)
 
     def test_candidate_creation(self):

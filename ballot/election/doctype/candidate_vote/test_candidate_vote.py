@@ -154,4 +154,5 @@ class TestCandidateVote(IntegrationTestCase):
         with self.assertRaises(frappe.ValidationError):
             vote2.insert()
 
+        frappe.set_user('Administrator')
         vote1.delete(force=1)
