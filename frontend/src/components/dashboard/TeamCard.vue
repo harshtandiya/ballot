@@ -1,6 +1,7 @@
 <template>
   <Card
-    class="!shadow-none border border-primary-200 hover:border-primary-500 transition-colors ease-in-out"
+    class="!shadow-none border border-primary-200 hover:border-primary-500 hover:cursor-pointer transition-colors ease-in-out"
+    @click="router.push({ name: 'Team Dashboard', params: { id: team.name } })"
   >
     <template #title>
       {{ team.team_name }}
@@ -25,6 +26,9 @@
 <script setup>
 import Card from 'primevue/card'
 import { IconUsers } from '@tabler/icons-vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 defineProps({
   team: {
