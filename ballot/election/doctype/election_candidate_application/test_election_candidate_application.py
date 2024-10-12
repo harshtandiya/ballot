@@ -3,7 +3,7 @@
 
 import frappe
 from faker import Faker
-from frappe.tests.utils import FrappeTestCase
+from frappe.tests import IntegrationTestCase
 
 ELECTION_DOC = "Election"
 TEAM_DOC = "Election Team"
@@ -17,7 +17,7 @@ CANDIDATE_2 = "test3@example.com"
 fake = Faker()
 
 
-class TestElectionCandidateApplication(FrappeTestCase):
+class TestElectionCandidateApplication(IntegrationTestCase):
     def setUp(self):
         frappe.set_user(TEAM_OWNER)
 
@@ -146,6 +146,7 @@ class TestElectionCandidateApplication(FrappeTestCase):
 
         with self.assertRaises(frappe.PermissionError):
             self.application.save()
+        _team.delete(force=1)
 
     def test_candidate_creation(self):
         # Given an application with status "Pending"

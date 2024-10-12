@@ -3,7 +3,7 @@
 
 import frappe
 from faker import Faker
-from frappe.tests.utils import FrappeTestCase
+from frappe.tests import IntegrationTestCase
 
 fake = Faker()
 
@@ -18,7 +18,7 @@ CANDIDATE_1 = "test2@example.com"
 CANDIDATE_2 = "test3@example.com"
 
 
-class TestCandidateVote(FrappeTestCase):
+class TestCandidateVote(IntegrationTestCase):
     def setUp(self):
         frappe.set_user(TEAM_OWNER)
 
@@ -153,3 +153,5 @@ class TestCandidateVote(FrappeTestCase):
 
         with self.assertRaises(frappe.ValidationError):
             vote2.insert()
+
+        vote1.delete(force=1)

@@ -3,7 +3,7 @@
 
 import frappe
 from faker import Faker
-from frappe.tests.utils import FrappeTestCase
+from frappe.tests import IntegrationTestCase
 
 fake = Faker()
 
@@ -12,7 +12,7 @@ TEAM_OWNER = "test1@example.com"
 NEW_MEMBER = "test2@example.com"
 
 
-class TestElectionTeam(FrappeTestCase):
+class TestElectionTeam(IntegrationTestCase):
     def setUp(self):
         frappe.set_user(TEAM_OWNER)
 
@@ -166,3 +166,5 @@ class TestElectionTeam(FrappeTestCase):
                 },
             )
         )
+
+        _election_team.delete(force=1)
