@@ -16,6 +16,18 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/myteam/:id',
+    name: 'Team Dashboard',
+    component: () => import('@/pages/TeamDashboard.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Team Details',
+        component: () => import('@/pages/team/Details.vue'),
+      },
+    ],
+  },
 ]
 
 let router = createRouter({

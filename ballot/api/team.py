@@ -42,7 +42,7 @@ def get_user_teams(user: str):
 
     return teams
 
-
+@frappe.whitelist()
 def get_member_details(team: str):
     """
     Get members of a team
@@ -88,3 +88,22 @@ def get_team_owner(team: str, user: str = None):
         return "You"
 
     return owner_details["full_name"]
+
+@frappe.whitelist()
+def add_member_to_team(team: str, user: str):
+    '''
+    Add a user as a member to a team.
+
+    Args:
+        team: team id
+        user: user id / email
+    '''
+
+    if not frappe.db.exists("User", user):
+        frappe.throw("Sorry, we couldn't find that user. Please make sure they are registered.")
+
+    team_doc = frappe.get_doc("Election Team", team)
+    team_doc.append("members", {
+        "user": user,
+    })
+    team_doc.save(ignore_permissions = True)
