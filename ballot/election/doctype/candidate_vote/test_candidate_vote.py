@@ -102,7 +102,6 @@ class TestCandidateVote(IntegrationTestCase):
                 "election": self.election.name,
                 "linked_application": self.application_1.name,
             },
-            ["*"],
         )
         candidate_2 = frappe.get_doc(
             CANDIDATE_DOC,
@@ -110,7 +109,6 @@ class TestCandidateVote(IntegrationTestCase):
                 "election": self.election.name,
                 "linked_application": self.application_2.name,
             },
-            ["*"],
         )
 
         self.candidate_1 = candidate_1
