@@ -26,6 +26,11 @@ const routes = [
         name: 'Team Details',
         component: () => import('@/pages/team/Details.vue'),
       },
+      {
+        path: 'elections',
+        name: 'Team Elections',
+        component: () => import('@/pages/team/Elections.vue'),
+      },
     ],
   },
 ]

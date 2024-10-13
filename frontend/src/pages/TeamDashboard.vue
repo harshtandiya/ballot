@@ -27,5 +27,9 @@ const sidebarItems = [
     label: 'Details',
     route: `/myteam/${route.params.id}`,
   },
+  {
+    label: 'Elections',
+    route: `/myteam/${route.params.id}/elections`,
+  },
 ]
 </script>
