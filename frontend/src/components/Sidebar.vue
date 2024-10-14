@@ -6,69 +6,79 @@
       class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-primary-50 p-4"
     >
       <div class="flex flex-col gap-4">
-        <div class="mb-3">
-          <div class="font-sans text-2xl font-semibold">Ballot.</div>
-        </div>
-        <div class="flex flex-col gap-1">
-          <Button
-            v-for="(item, index) in sidebarItems"
-            :key="item.label"
-            :label="item.label"
-            :variant="isMenuItemActive(item.route, index) ? 'subtle' : 'ghost'"
-            :class="
-              isMenuItemActive(item.route, index)
-                ? 'bg-gray-200 font-medium'
-                : ''
-            "
-            size="sm"
-            class="!justify-start text-sm rounded-sm"
-            @click="router.push(item.route)"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col gap-4">
-        <div class="flex items-center justify-between text-gray-800">
-          <div class="flex items-center gap-2">
-            <img
-              v-if="userDetails.data?.user_image"
-              :src="userDetails.data?.user_image"
-              class="w-6 h-6 rounded-full"
+        <slot name="branding">
+          <div class="mb-3">
+            <div class="font-sans text-2xl font-semibold">Ballot.</div>
+          </div>
+        </slot>
+        <slot name="pre-nav-items"></slot>
+        <slot name="nav-items">
+          <div class="flex flex-col gap-1">
+            <Button
+              v-for="(item, index) in sidebarItems"
+              :key="item.label"
+              :label="item.label"
+              :variant="
+                isMenuItemActive(item.route, index) ? 'subtle' : 'ghost'
+              "
+              :class="
+                isMenuItemActive(item.route, index)
+                  ? 'bg-gray-200 font-medium'
+                  : ''
+              "
+              size="sm"
+              class="!justify-start text-sm rounded-sm"
+              @click="router.push(item.route)"
             />
-            <IconUserFilled v-else class="w-3 h-3" />
-            <span class="text-sm font-medium">{{
-              userDetails.data?.full_name
-            }}</span>
           </div>
-          <div>
-            <Popover>
-              <template #target="{ togglePopover }">
-                <Button
-                  icon="more-vertical"
-                  variant="ghost"
-                  @click="togglePopover()"
-                />
-              </template>
-              <template #body-main>
-                <div class="flex flex-col gap-1 p-2">
+        </slot>
+        <slot name="post-nav-items"></slot>
+      </div>
+      <slot name="user-actions">
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between text-gray-800">
+            <div class="flex items-center gap-2">
+              <img
+                v-if="userDetails.data?.user_image"
+                :src="userDetails.data?.user_image"
+                class="w-6 h-6 rounded-full"
+              />
+              <IconUserFilled v-else class="w-3 h-3" />
+              <span class="text-sm font-medium">{{
+                userDetails.data?.full_name
+              }}</span>
+            </div>
+            <div>
+              <Popover>
+                <template #target="{ togglePopover }">
                   <Button
-                    class="!justify-start text-sm rounded-sm cursor-pointer"
-                    label="My Profile"
-                    :link="getRedirectUrl('me')"
+                    icon="more-vertical"
                     variant="ghost"
+                    @click="togglePopover()"
                   />
-                  <Button
-                    variant="ghost"
-                    theme="red"
-                    class="!justify-start text-sm rounded-sm cursor-pointer"
-                    label="Logout"
-                    @click="session.logout.fetch()"
-                  />
-                </div>
-              </template>
-            </Popover>
+                </template>
+                <template #body-main>
+                  <div class="flex flex-col gap-1 p-2">
+                    <Button
+                      class="!justify-start text-sm rounded-sm cursor-pointer"
+                      label="My Profile"
+                      :link="getRedirectUrl('me')"
+                      variant="ghost"
+                    />
+                    <Button
+                      variant="ghost"
+                      theme="red"
+                      class="!justify-start text-sm rounded-sm cursor-pointer"
+                      label="Logout"
+                      @click="session.logout.fetch()"
+                    />
+                  </div>
+                </template>
+              </Popover>
+            </div>
           </div>
         </div>
-      </div>
+      </slot>
     </div>
   </div>
 </template>
