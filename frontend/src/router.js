@@ -17,7 +17,7 @@ const routes = [
     ],
   },
   {
-    path: '/myteam/:id',
+    path: '/my-team/:id',
     name: 'Team Dashboard',
     component: () => import('@/pages/TeamDashboard.vue'),
     children: [
@@ -30,6 +30,18 @@ const routes = [
         path: 'elections',
         name: 'Team Elections',
         component: () => import('@/pages/team/Elections.vue'),
+      },
+    ],
+  },
+  {
+    path: '/my-elections/:id',
+    name: 'Election Dashboard',
+    component: () => import('@/pages/election/ElectionDashboard.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Election Details',
+        component: () => import('@/pages/election/Details.vue'),
       },
     ],
   },

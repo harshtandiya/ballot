@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup>
-import { createDocumentResource, createResource } from 'frappe-ui'
+import { createDocumentResource } from 'frappe-ui'
 import { useRoute } from 'vue-router'
 import Sidebar from '@/components/Sidebar.vue'
 import { provide } from 'vue'
@@ -25,11 +25,11 @@ provide('$team', team)
 const sidebarItems = [
   {
     label: 'Details',
-    route: `/myteam/${route.params.id}`,
+    route: `/my-team/${route.params.id}`,
   },
   {
     label: 'Elections',
-    route: `/myteam/${route.params.id}/elections`,
+    route: `/my-team/${route.params.id}/elections`,
   },
 ]
 </script>

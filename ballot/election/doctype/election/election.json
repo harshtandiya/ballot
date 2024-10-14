@@ -6,10 +6,16 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "meta_section",
+  "column_break_chmz",
+  "slug",
+  "details_section",
   "title",
   "status",
   "column_break_fwoq",
-  "organizing_team"
+  "organizing_team",
+  "section_break_gyas",
+  "description"
  ],
  "fields": [
   {
@@ -38,11 +44,41 @@
    "label": "Status",
    "options": "Draft\nLive\nCancelled\nConcluded",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_gyas",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Meta"
+  },
+  {
+   "fieldname": "slug",
+   "fieldtype": "Data",
+   "label": "Slug",
+   "mandatory_depends_on": "eval:doc.status!='Draft'",
+   "unique": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "column_break_chmz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-13 15:28:40.648968",
+ "modified": "2024-10-14 17:38:13.724435",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election",
@@ -72,7 +108,24 @@
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Draft"
+  },
+  {
+   "color": "Green",
+   "title": "Live"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  },
+  {
+   "color": "Gray",
+   "title": "Concluded"
+  }
+ ],
  "title_field": "title",
  "track_changes": 1
 }

@@ -17,7 +17,14 @@
       <span class="text-sm text-gray-700">You are not part of any team.</span>
     </div>
     <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-3">
-      <TeamCard v-for="(team, index) in teams.data" :key="index" :team="team" />
+      <TeamCard
+        v-for="(team, index) in teams.data"
+        :key="index"
+        :team="team"
+        @click="
+          router.push({ name: 'Team Dashboard', params: { id: team.name } })
+        "
+      />
     </div>
   </div>
 </template>
@@ -26,9 +33,11 @@ import { inject, ref } from 'vue'
 import { createResource } from 'frappe-ui'
 import CreateTeamDialog from '@/components/dashboard/CreateTeamDialog.vue'
 import TeamCard from '@/components/dashboard/TeamCard.vue'
+import { useRouter } from 'vue-router'
 
 const session = inject('$session')
 const showDialog = ref(false)
+const router = useRouter()
 
 const teams = createResource({
   url: 'ballot.api.team.get_user_teams',

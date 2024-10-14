@@ -19,6 +19,12 @@
           v-for="election in elections.data"
           :key="election.name"
           :election="election"
+          @click="
+            router.push({
+              name: 'Election Dashboard',
+              params: { id: election.name },
+            })
+          "
         ></ElectionCard>
       </div>
     </div>
@@ -26,11 +32,12 @@
 </template>
 <script setup>
 import { createListResource } from 'frappe-ui'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import ElectionCard from '@/components/election/ElectionCard.vue'
 import CreateElectionDialog from '@/components/election/CreateElectionDialog.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const elections = createListResource({
   doctype: 'Election',
