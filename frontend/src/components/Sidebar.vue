@@ -96,7 +96,9 @@ const router = useRouter()
 const props = defineProps({
   sidebarItems: {
     type: Array,
-    required: true,
+    default() {
+      return []
+    },
   },
 })
 
