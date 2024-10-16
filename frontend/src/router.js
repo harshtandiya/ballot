@@ -43,7 +43,34 @@ const routes = [
         name: 'Election Details',
         component: () => import('@/pages/election/Details.vue'),
       },
+      {
+        path: 'nomination',
+        name: 'Nomination Dashboard',
+        component: () => import('@/pages/election/NominationFormDashboard.vue'),
+      },
     ],
+  },
+  {
+    path: '/create-nomination-form',
+    name: 'Create Nomination Form',
+    component: () => import('@/pages/election/CreateNominationForm.vue'),
+    beforeEnter: (to, from, next) => {
+      if (!to.query.election) {
+        next(false)
+        router.replace({
+          name: 'ErrorPage',
+          params: { missingParam: 'election' },
+        })
+      } else {
+        next()
+      }
+    },
+  },
+  {
+    path: '/error',
+    name: 'ErrorPage',
+    component: () => import('@/pages/ErrorPage.vue'),
+    props: true,
   },
 ]
 

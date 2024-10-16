@@ -18,8 +18,8 @@ const sidebarItems = [
     route: `/my-elections/${route.params.id}`,
   },
   {
-    label: 'Nomination Form',
-    route: `/my-elections/${route.params.id}/nomination-form`,
+    label: 'Nominations',
+    route: `/my-elections/${route.params.id}/nomination`,
   },
 ]
 </script>
