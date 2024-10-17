@@ -253,3 +253,46 @@ export function deleteColumnWithContent(fields, section, column) {
 export function isSelected(selectedField, current_fieldname) {
   return selectedField && selectedField.fieldname === current_fieldname
 }
+
+export function transformFields(fields) {
+  const groupBySection = {}
+  let curr_section = ''
+  let curr_column = ''
+
+  fields.forEach((field) => {
+    switch (field.fieldtype) {
+      case 'Section Break':
+        curr_section = field.fieldname
+        if (!groupBySection[curr_section]) {
+          groupBySection[curr_section] = { column_count: 0, columns: {} }
+        }
+        curr_column = '' // Reset current column when a new section starts
+        break
+
+      case 'Column Break':
+        curr_column = field.fieldname
+        if (!groupBySection[curr_section].columns[curr_column]) {
+          groupBySection[curr_section].column_count += 1
+          groupBySection[curr_section].columns[curr_column] = []
+        }
+        break
+
+      default:
+        if (!groupBySection[curr_section]) {
+          groupBySection[curr_section] = { column_count: 0, columns: {} }
+        }
+        if (!groupBySection[curr_section].columns[curr_column]) {
+          groupBySection[curr_section].column_count += 1
+          groupBySection[curr_section].columns[curr_column] = []
+        }
+        groupBySection[curr_section].columns[curr_column].push(field)
+        break
+    }
+  })
+
+  return groupBySection
+}
+
+export function getFieldIndex(fields, fieldname) {
+  return fields.findIndex((field) => field.fieldname === fieldname)
+}
