@@ -13,13 +13,12 @@
       >
         {{ field.label }}
       </h3>
-      <div v-else class="h-4"></div>
+      <div
+        v-else
+        :class="field.fieldtype == 'Section Break' ? 'hidden' : 'h-4'"
+      ></div>
     </div>
-    <div
-      v-else
-      class="flex flex-col gap-2"
-      :class="{ Editor: 'h-[200px]' }[field.fieldtype]"
-    >
+    <div v-else class="flex flex-col gap-2 h-fit">
       <div class="flex items-start gap-1">
         <label :for="field.fieldname" class="text-sm">{{ field.label }}</label>
         <IconAsterisk v-if="field.mandatory" color="red" size="0.5rem" />
@@ -30,6 +29,7 @@
         v-model="fields[getFieldIndex(field.fieldname)]['value']"
         :options="field.options.split('\n')"
         class="h-full"
+        :class="{ Editor: 'h-[200px]' }[field.fieldtype]"
       ></component>
     </div>
   </div>

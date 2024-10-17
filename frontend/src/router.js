@@ -67,6 +67,11 @@ const routes = [
     },
   },
   {
+    path: '/manage-candidate-form/:id',
+    name: 'Manage Candidate Form',
+    component: () => import('@/pages/election/ManageNominationForm.vue'),
+  },
+  {
     path: '/error',
     name: 'ErrorPage',
     component: () => import('@/pages/ErrorPage.vue'),

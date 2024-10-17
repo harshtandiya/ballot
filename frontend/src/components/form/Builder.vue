@@ -1,6 +1,6 @@
 <template>
   <div class="flex min-h-screen h-fit">
-    <div class="flex-grow flex flex-col gap-4 p-4 mr-[220px]">
+    <div class="flex-grow flex flex-col gap-4 p-4">
       <FormLayoutBuilder
         v-model:fields="fields"
         @load-field="

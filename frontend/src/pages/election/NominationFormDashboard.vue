@@ -43,7 +43,14 @@
             The nomination form has been created. You can add or modify details
             before publishing it.
           </p>
-          <Button label="Manage Form" variant="solid" />
+          <Button
+            label="Manage Form"
+            variant="solid"
+            :route="{
+              name: 'Manage Candidate Form',
+              params: { id: nominationForm.data.name },
+            }"
+          />
         </div>
         <InsightsView :nomination-form="nominationForm" class="my-6" />
       </div>

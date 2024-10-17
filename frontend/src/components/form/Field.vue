@@ -38,7 +38,7 @@
           Data: 'max-w-[360px]',
           Number: 'max-w-[360px]',
           Select: 'max-w-[360px]',
-          Editor: 'h-[180px]',
+          Editor: 'h-fit',
         }[currentField.fieldtype],
       ]"
     >
