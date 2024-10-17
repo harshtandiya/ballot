@@ -78,7 +78,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 17:38:13.724435",
+ "modified": "2024-10-16 16:42:36.035841",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election",
@@ -103,6 +103,10 @@
    "read": 1,
    "role": "Election Team Member",
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "show_title_field_in_link": 1,

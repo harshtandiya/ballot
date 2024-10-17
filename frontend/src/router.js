@@ -72,6 +72,21 @@ const routes = [
     component: () => import('@/pages/ErrorPage.vue'),
     props: true,
   },
+  {
+    path: '/election/:slug',
+    name: 'Election Public Page',
+    component: () => import('@/pages/election/ElectionHome.vue'),
+  },
+  {
+    path: '/election/:slug/apply',
+    name: 'Nomination Form',
+    component: () => import('@/pages/election/CandidatureFormPublic.vue'),
+  },
+  {
+    path: '/my-submissions',
+    name: 'My Submissions',
+    component: () => import('@/pages/submissions/MySubmissions.vue'),
+  },
 ]
 
 let router = createRouter({

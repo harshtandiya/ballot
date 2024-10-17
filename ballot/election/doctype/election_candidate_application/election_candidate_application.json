@@ -1,161 +1,165 @@
 {
-  "actions": [],
-  "allow_rename": 1,
-  "creation": "2024-09-25 00:35:47.430030",
-  "doctype": "DocType",
-  "engine": "InnoDB",
-  "field_order": [
-    "meta_section",
-    "user",
-    "election",
-    "nomination_form",
-    "status",
-    "details_section",
-    "full_name",
-    "photo",
-    "column_break_jysv",
-    "email",
-    "section_break_lodj",
-    "form_response"
-  ],
-  "fields": [
-    {
-      "fieldname": "meta_section",
-      "fieldtype": "Section Break",
-      "label": "Meta"
-    },
-    {
-      "fieldname": "user",
-      "fieldtype": "Link",
-      "label": "User",
-      "options": "User"
-    },
-    {
-      "fieldname": "election",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Election",
-      "options": "Election",
-      "reqd": 1
-    },
-    {
-      "default": "Pending",
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "Pending\nAccepted\nRejected",
-      "permlevel": 1,
-      "reqd": 1
-    },
-    {
-      "fieldname": "details_section",
-      "fieldtype": "Section Break",
-      "label": "Details"
-    },
-    {
-      "fieldname": "full_name",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Full Name",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_jysv",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "email",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Email",
-      "options": "Email",
-      "reqd": 1
-    },
-    {
-      "fieldname": "nomination_form",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Nomination Form",
-      "options": "Election Nomination Form",
-      "reqd": 1
-    },
-    {
-      "fieldname": "section_break_lodj",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "form_response",
-      "fieldtype": "Table",
-      "label": "Form Response",
-      "options": "Ballot Custom Answer"
-    },
-    {
-      "fieldname": "photo",
-      "fieldtype": "Attach Image",
-      "label": "Photo"
-    }
-  ],
-  "index_web_pages_for_search": 1,
-  "links": [],
-  "modified": "2024-09-25 15:33:27.269689",
-  "modified_by": "Administrator",
-  "module": "Election",
-  "name": "Election Candidate Application",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "delete": 1,
-      "if_owner": 1,
-      "read": 1,
-      "role": "All",
-      "write": 1
-    },
-    {
-      "read": 1,
-      "role": "Election Team Member",
-      "write": 1
-    },
-    {
-      "email": 1,
-      "export": 1,
-      "permlevel": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Election Team Member",
-      "share": 1,
-      "write": 1
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "states": [
-    {
-      "color": "Orange",
-      "title": "Pending"
-    },
-    {
-      "color": "Green",
-      "title": "Accepted"
-    },
-    {
-      "color": "Red",
-      "title": "Rejected"
-    }
-  ],
-  "track_changes": 1
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-25 00:35:47.430030",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "meta_section",
+  "user",
+  "election",
+  "nomination_form",
+  "status",
+  "details_section",
+  "full_name",
+  "photo",
+  "column_break_jysv",
+  "email",
+  "section_break_lodj",
+  "form_response",
+  "submission_meta"
+ ],
+ "fields": [
+  {
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Meta"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "election",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Election",
+   "options": "Election",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nAccepted\nRejected",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "column_break_jysv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "nomination_form",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Nomination Form",
+   "options": "Election Nomination Form",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_lodj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "form_response",
+   "fieldtype": "Table",
+   "label": "Form Response",
+   "options": "Ballot Custom Answer"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "submission_meta",
+   "fieldtype": "JSON",
+   "label": "Submission Meta"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-16 19:08:57.284657",
+ "modified_by": "Administrator",
+ "module": "Election",
+ "name": "Election Candidate Application",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "if_owner": 1,
+   "read": 1,
+   "role": "All",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Election Team Member",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Election Team Member",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Pending"
+  },
+  {
+   "color": "Green",
+   "title": "Accepted"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ],
+ "track_changes": 1
 }
