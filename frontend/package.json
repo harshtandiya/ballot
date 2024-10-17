@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build --base=/assets/ballot/frontend/ && yarn copy-html-entry",
     "preview": "vite preview",
-    "copy-html-entry": "cp ../ballot/public/frontend/index.html ../ballot/www/frontend.html"
+    "copy-html-entry": "cp ../ballot/public/frontend/index.html ../ballot/www/ballot.html"
   },
   "dependencies": {
     "@primevue/themes": "^4.1.0",
