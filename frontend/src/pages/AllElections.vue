@@ -17,6 +17,12 @@
           v-for="(election, index) in liveElections.data"
           :key="index"
           :election="election"
+          @click="
+            router.push({
+              name: 'Election Public Page',
+              params: { slug: election.slug },
+            })
+          "
         />
       </div>
       <div v-else>
@@ -38,6 +44,12 @@
           v-for="(election, index) in pastElections.data"
           :key="index"
           :election="election"
+          @click="
+            router.push({
+              name: 'Election Public Page',
+              params: { slug: election.slug },
+            })
+          "
         />
       </div>
       <div v-else>
@@ -52,13 +64,16 @@
 import { createResource, LoadingText } from 'frappe-ui'
 import ElectionCard from '@/components/election/ElectionCard.vue'
 import Elections from './team/Elections.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const liveElections = createResource({
   url: 'frappe.client.get_list',
   makeParams() {
     return {
       doctype: 'Election',
-      fields: ['title', 'status', 'creation'],
+      fields: ['title', 'status', 'creation', 'slug'],
       limit_page_length: 99,
       filters: {
         status: 'Live',
@@ -73,7 +88,7 @@ const pastElections = createResource({
   makeParams() {
     return {
       doctype: 'Election',
-      fields: ['title', 'status', 'creation'],
+      fields: ['title', 'status', 'creation', 'slug'],
       limit_page_length: 99,
       filters: {
         status: 'Concluded',
