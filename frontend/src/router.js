@@ -14,6 +14,11 @@ const routes = [
         name: 'Dashboard',
         component: () => import('@/pages/Dashboard.vue'),
       },
+      {
+        path: 'elections',
+        name: 'All Elections',
+        component: () => import('@/pages/AllElections.vue'),
+      },
     ],
   },
   {
