@@ -7,8 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "status",
-  "section_break_aztt",
+  "column_break_horj",
   "election",
+  "section_break_aztt",
+  "description",
   "form_question",
   "fields_meta"
  ],
@@ -43,6 +45,15 @@
    "fieldname": "fields_meta",
    "fieldtype": "JSON",
    "label": "Fields Meta"
+  },
+  {
+   "fieldname": "column_break_horj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -53,7 +64,7 @@
    "link_fieldname": "nomination_form"
   }
  ],
- "modified": "2024-10-17 13:21:22.072887",
+ "modified": "2024-10-18 14:16:19.353946",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Nomination Form",

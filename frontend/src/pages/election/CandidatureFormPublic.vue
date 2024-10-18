@@ -2,17 +2,18 @@
   <Header />
   <div class="flex w-full justify-center py-6">
     <div class="space-y-4 w-full max-w-screen-xl px-6">
-      <h1 class="text-3xl font-sans font-semibold">Apply for Nomination</h1>
+      <h1 class="text-3xl font-sans font-semibold">Apply for Candidature</h1>
       <Divider />
       <div v-if="form.loading">
         <LoadingText />
       </div>
-      <RenderForm
-        v-else
-        v-model:fields="fields_meta"
-        :election="election.data"
-        :form="form.data"
-      ></RenderForm>
+      <div v-else>
+        <RenderForm
+          v-model:fields="fields_meta"
+          :election="election.data"
+          :form="form.data"
+        ></RenderForm>
+      </div>
     </div>
   </div>
 </template>
