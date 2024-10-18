@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col gap-3">
+  <div class="flex flex-col">
     <RenderField
       v-model:fields="fields"
       :field="fields[getFieldIndex(fields, section)]"
     />
     <div
-      :class="`w-full grid grid-cols-1 md:grid-cols-${values.column_count} gap-4`"
+      :class="`w-full grid grid-cols-1 md:grid-cols-${values.column_count} gap-x-4 gap-y-2`"
     >
       <RenderColumn
         v-for="(_fields, column) in values.columns"

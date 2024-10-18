@@ -4,7 +4,7 @@
       v-model:fields="fields"
       :field="fields[getFieldIndex(fields, column)]"
     />
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-1">
       <RenderField
         v-for="_field in columnFields"
         :key="_field.fieldname"

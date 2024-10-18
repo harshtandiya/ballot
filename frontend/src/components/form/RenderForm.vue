@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col gap-12">
+  <div class="w-full flex flex-col">
     <RenderSection
       v-for="(values, section) in transformedFields"
       :key="section"
@@ -10,7 +10,7 @@
     <Button
       label="Submit"
       variant="solid"
-      class="w-full md:w-1/3"
+      class="w-full mt-4 md:w-1/3"
       @click="handleSubmit"
     />
   </div>
