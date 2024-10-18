@@ -33,7 +33,7 @@
         </div>
       </template>
     </Sidebar>
-    <div class="w-full md:ml-[220px]">
+    <div v-if="candidateForm.data" class="w-full md:ml-[220px]">
       <div class="w-full flex justify-between items-center p-4">
         <h1 class="font-sans text-3xl font-semibold">Candidate Form</h1>
         <Button
@@ -43,16 +43,54 @@
           @click="handleFormSave"
         />
       </div>
-      <FormBuilder v-model:fields="fields" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
+        <FloatLabel variant="on">
+          <Select
+            id="formStatus"
+            v-model="candidateForm.data.status"
+            :options="statusOptions"
+            class="w-full"
+          />
+          <label for="formStatus">Status</label>
+        </FloatLabel>
+        <div class="space-y-1">
+          <div class="text-base">
+            The form will be available at the link below:
+          </div>
+          <Chip v-if="election.data">
+            <a :href="formRoute" class="text-sm font-mono" target="_blank">
+              {{ formRoute }}
+            </a>
+          </Chip>
+        </div>
+        <div class="col-span-2">
+          <label for="description" class="text-sm text-primary-600"
+            >Description</label
+          >
+          <Editor
+            id="description"
+            v-model="candidateForm.data.description"
+            class="mb-6"
+          />
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg ml-4 text-primary-700 font-semibold">Fields</h3>
+        <FormBuilder v-model:fields="fields" />
+      </div>
     </div>
   </div>
 </template>
 <script setup>
+import FloatLabel from 'primevue/floatlabel'
+import Select from 'primevue/select'
+import Editor from 'primevue/editor'
+import Chip from 'primevue/chip'
 import Sidebar from '@/components/Sidebar.vue'
 import FormBuilder from '@/components/form/Builder.vue'
 import { useRouter, useRoute } from 'vue-router'
 import { createResource, Dialog, ErrorMessage } from 'frappe-ui'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { getFieldErrors } from '@/utils/formValidators'
 import { toast } from 'vue-sonner'
 
@@ -61,6 +99,8 @@ const route = useRoute()
 const fields = ref([])
 const showErrorDialog = ref(false)
 const errorMessages = ref('')
+
+const statusOptions = ref(['Live', 'Draft', 'Closed'])
 
 const candidateForm = createResource({
   url: 'frappe.client.get',
@@ -72,7 +112,18 @@ const candidateForm = createResource({
   },
   auto: true,
   onSuccess(data) {
+    election.fetch()
     fields.value = JSON.parse(data.fields_meta)
+  },
+})
+
+const election = createResource({
+  url: 'frappe.client.get',
+  makeParams() {
+    return {
+      doctype: 'Election',
+      name: candidateForm.data.election,
+    }
   },
 })
 
@@ -102,8 +153,11 @@ const saveForm = createResource({
     return {
       doctype: 'Election Nomination Form',
       name: route.params.id,
-      fieldname: 'fields_meta',
-      value: JSON.stringify(fields.value),
+      fieldname: {
+        status: candidateForm.data.status,
+        description: candidateForm.data.description,
+        fields_meta: JSON.stringify(fields.value),
+      },
     }
   },
   onSuccess() {
@@ -114,5 +168,11 @@ const saveForm = createResource({
     errorMessages.value = err.messages
     showErrorDialog.value = true
   },
+})
+
+const formRoute = computed(() => {
+  let route = `${window.location.origin}/election/${election.data?.slug}/apply`
+
+  return route
 })
 </script>
