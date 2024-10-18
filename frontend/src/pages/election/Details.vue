@@ -1,11 +1,17 @@
 <template>
-  <div class="p-4 flex flex-col gap-4">
+  <div
+    v-if="election.loading"
+    class="p-5 flex items-center justify-center h-screen w-full"
+  >
+    <LoadingText />
+  </div>
+  <div v-if="election.data" class="p-4 flex flex-col gap-4">
     <div class="border-b">
       <h3 class="text-sm uppercase font-medium text-primary-600">
         Election Details
       </h3>
       <h1 class="mt-2 mb-4 text-3xl font-semibold font-sans">
-        {{ election.data?.title }}
+        {{ election.data.title }}
       </h1>
     </div>
     <div class="my-4 space-y-4">
@@ -66,7 +72,7 @@
   </div>
 </template>
 <script setup>
-import { createResource, ErrorMessage } from 'frappe-ui'
+import { createResource, ErrorMessage, LoadingText } from 'frappe-ui'
 import { useRoute } from 'vue-router'
 import FloatLabel from 'primevue/floatlabel'
 import InputText from 'primevue/inputtext'
@@ -131,6 +137,7 @@ const election = createResource({
     }
   },
   auto: true,
+  loading: true,
   onSuccess(data) {
     details.title = data.title
     details.description = data.description

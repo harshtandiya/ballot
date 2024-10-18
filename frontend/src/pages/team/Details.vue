@@ -1,4 +1,5 @@
 <template>
+  <div v-if="team.loading"><LoadingText /></div>
   <div v-if="team.data" class="p-4 flex flex-col gap-4">
     <div class="border-b">
       <h3 class="text-sm uppercase font-medium text-primary-600">
@@ -40,7 +41,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { createResource, ErrorMessage } from 'frappe-ui'
+import { createResource, ErrorMessage, LoadingText } from 'frappe-ui'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue-sonner'
 import InputText from 'primevue/inputtext'
