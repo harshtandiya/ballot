@@ -63,7 +63,7 @@
 import { createResource, LoadingText } from 'frappe-ui'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue-sonner'
-import InsightsView from '@/components/nominations/Insights.vue'
+import InsightsView from '@/components/candidature/Insights.vue'
 
 const route = useRoute()
 
