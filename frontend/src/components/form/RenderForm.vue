@@ -1,5 +1,6 @@
 <template>
   <div class="w-full flex flex-col">
+    <RenderBaseFields v-model:fields="baseFields" />
     <RenderSection
       v-for="(values, section) in transformedFields"
       :key="section"
@@ -7,6 +8,7 @@
       :values="values"
       :section="section"
     />
+    <ErrorMessage :message="errorMessages" />
     <Button
       label="Submit"
       variant="solid"
@@ -18,6 +20,7 @@
 <script setup>
 import { transformFields } from '@/utils/formbuilder'
 import { computed, ref, inject } from 'vue'
+import RenderBaseFields from '@/components/candidature/RenderBaseFields.vue'
 import RenderField from './RenderField.vue'
 import { createResource, ErrorMessage } from 'frappe-ui'
 import { useRouter } from 'vue-router'
@@ -26,6 +29,21 @@ import RenderSection from './RenderSection.vue'
 const fields = defineModel('fields', { type: Array, required: true })
 
 const router = useRouter()
+
+const baseFields = ref([
+  {
+    label: 'Full Name',
+    fieldname: 'full_name',
+    mandatory: true,
+    value: '',
+  },
+  {
+    label: 'Email',
+    fieldname: 'email',
+    mandatory: true,
+    value: '',
+  },
+])
 
 const props = defineProps({
   election: {
@@ -48,6 +66,13 @@ const transformedFields = computed(() => {
 
 function getMandatoryErrors() {
   let errors = []
+
+  baseFields.value.forEach((field) => {
+    if (field.mandatory && !field.value) {
+      errors.push(`${field.label} is mandatory`)
+    }
+  })
+
   fields.value.forEach((field) => {
     if (field.mandatory && !field.value) {
       errors.push(`${field.label} is mandatory`)
@@ -77,6 +102,8 @@ const submitForm = createResource({
         user: session.user,
         election: props.election.name,
         nomination_form: props.form.name,
+        full_name: baseFields.value[0]['value'],
+        email: baseFields.value[1]['value'],
         submission_meta: JSON.stringify(fields.value),
       },
     }

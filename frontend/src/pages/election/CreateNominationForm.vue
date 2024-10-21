@@ -46,6 +46,7 @@
           @click="handleFormSave"
         />
       </div>
+      <FormBaseFields />
       <FormBuilder v-model:fields="fields" />
     </div>
   </div>
@@ -53,6 +54,7 @@
 <script setup>
 import Sidebar from '@/components/Sidebar.vue'
 import FormBuilder from '@/components/form/Builder.vue'
+import FormBaseFields from '@/components/candidature/FormBaseFields.vue'
 import { useRouter, useRoute } from 'vue-router'
 import { createResource, Dialog, ErrorMessage } from 'frappe-ui'
 import { ref } from 'vue'
@@ -64,6 +66,49 @@ const route = useRoute()
 const fields = ref([])
 const showErrorDialog = ref(false)
 const errorMessages = ref('')
+
+const baseFields = ref([
+  {
+    fieldtype: 'Section Break',
+    fieldname: 'section_break_base',
+    label: 'Personal Details',
+    value: '',
+    mandatory: 0,
+    options: '',
+  },
+  {
+    fieldtype: 'Column Break',
+    fieldname: 'column_break_base1',
+    label: ' ',
+    value: '',
+    mandatory: 0,
+    options: '',
+  },
+  {
+    fieldtype: 'Data',
+    fieldname: 'full_name',
+    label: 'Full Name',
+    value: '',
+    mandatory: 1,
+    options: '',
+  },
+  {
+    fieldtype: 'Column Break',
+    fieldname: 'column_break_base2',
+    label: ' ',
+    value: '',
+    mandatory: 0,
+    options: '',
+  },
+  {
+    fieldtype: 'Data',
+    fieldname: 'email',
+    label: 'Email',
+    value: '',
+    mandatory: 1,
+    options: '',
+  },
+])
 
 const election = createResource({
   url: 'frappe.client.get',

@@ -75,7 +75,8 @@
         </div>
       </div>
       <div>
-        <h3 class="text-lg ml-4 text-primary-700 font-semibold">Fields</h3>
+        <h3 class="text-lg ml-4 mb-4 text-primary-700 font-semibold">Fields</h3>
+        <FormBaseFields />
         <FormBuilder v-model:fields="fields" />
       </div>
     </div>
@@ -87,6 +88,7 @@ import Select from 'primevue/select'
 import Editor from 'primevue/editor'
 import Chip from 'primevue/chip'
 import Sidebar from '@/components/Sidebar.vue'
+import FormBaseFields from '@/components/candidature/FormBaseFields.vue'
 import FormBuilder from '@/components/form/Builder.vue'
 import { useRouter, useRoute } from 'vue-router'
 import { createResource, Dialog, ErrorMessage } from 'frappe-ui'
