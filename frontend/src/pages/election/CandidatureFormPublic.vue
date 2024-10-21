@@ -1,17 +1,16 @@
 <template>
   <Header />
-  <div class="flex w-full justify-center py-6">
+  <div class="flex w-full justify-center py-4">
     <div class="space-y-4 w-full max-w-screen-xl px-6">
       <div v-if="formStatus == 'Loading'">
         <LoadingText />
       </div>
       <div v-else-if="formStatus == 'Live'">
+        <Breadcrumb class="mb-2 !pl-0" :items="breadcrumbItems" />
         <h1 class="text-3xl font-sans font-semibold">Apply for Candidature</h1>
         <Divider />
-        <div v-if="form.loading">
-          <LoadingText />
-        </div>
-        <div v-else>
+        <div class="mt-2 mb-4" v-html="form.data.description"></div>
+        <div>
           <RenderForm
             v-model:fields="fields_meta"
             :election="election.data"
@@ -38,6 +37,7 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Divider from 'primevue/divider'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 import { createResource, LoadingText } from 'frappe-ui'
 import { useRoute } from 'vue-router'
 import RenderForm from '@/components/form/RenderForm.vue'
@@ -47,6 +47,11 @@ import { IconAlertCircle } from '@tabler/icons-vue'
 const route = useRoute()
 const formStatus = ref('Loading')
 const fields_meta = ref([])
+const breadcrumbItems = ref([
+  {
+    label: 'Elections',
+  },
+])
 
 const election = createResource({
   url: 'frappe.client.get',
@@ -59,7 +64,11 @@ const election = createResource({
     }
   },
   auto: true,
-  onSuccess() {
+  onSuccess(data) {
+    breadcrumbItems.value.push({
+      label: data.title,
+      route: `/election/${data.slug}`,
+    })
     form.fetch()
   },
 })
@@ -76,6 +85,7 @@ const form = createResource({
   },
   loading: true,
   onSuccess(data) {
+    breadcrumbItems.value.push({ label: 'Candidate Form' })
     formStatus.value = data.status
     if (data.status === 'Live') {
       fields_meta.value = JSON.parse(data.fields_meta)
