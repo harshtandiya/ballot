@@ -9,7 +9,11 @@
       <h3
         v-if="field.label"
         class="font-medium"
-        :class="field.fieldtype === 'Section Break' ? 'text-xl' : 'text-lg'"
+        :class="
+          field.fieldtype === 'Section Break'
+            ? 'text-lg text-primary-700'
+            : 'text-base text-primary-600'
+        "
       >
         {{ field.label }}
       </h3>
