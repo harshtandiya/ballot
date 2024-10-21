@@ -9,7 +9,6 @@
   "user",
   "election",
   "nomination_form",
-  "status",
   "details_section",
   "full_name",
   "photo",
@@ -37,16 +36,6 @@
    "in_list_view": 1,
    "label": "Election",
    "options": "Election",
-   "reqd": 1
-  },
-  {
-   "default": "Pending",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Pending\nAccepted\nRejected",
-   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -102,7 +91,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-16 19:08:57.284657",
+ "modified": "2024-10-22 01:41:58.942328",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate Application",
