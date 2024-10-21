@@ -49,7 +49,7 @@ const sidebarItems = [
     route: `/my-elections/${route.params.id}`,
   },
   {
-    label: 'Manage Candidates',
+    label: 'Candidates',
     route: `/my-elections/${route.params.id}/nomination`,
   },
 ]

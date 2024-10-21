@@ -171,7 +171,7 @@ const saveForm = createResource({
 })
 
 const formRoute = computed(() => {
-  let route = `${window.location.origin}/election/${election.data?.slug}/apply`
+  let route = `${window.location.origin}/ballot/election/${election.data?.slug}/apply`
 
   return route
 })

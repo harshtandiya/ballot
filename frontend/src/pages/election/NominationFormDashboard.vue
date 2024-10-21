@@ -2,8 +2,10 @@
   <div class="p-4 flex flex-col gap-4">
     <div class="border-b mb-2 pb-4 space-y-2">
       <h3 class="text-sm uppercase font-medium text-primary-600">Manage</h3>
-      <h1 class="text-3xl font-semibold font-sans">Nomination Form</h1>
-      <p class="text-sm text-primary-600">Create and manage nominations</p>
+      <h1 class="text-3xl font-semibold font-sans">Candidates</h1>
+      <p class="text-sm text-primary-600">
+        Create candidate forms and manage submissions
+      </p>
     </div>
     <div v-if="!has_form.data" class="space-y-3">
       <div class="space-y-2">
@@ -40,8 +42,8 @@
             >
           </h4>
           <p class="text-sm text-primary-700">
-            The nomination form has been created. You can add or modify details
-            before publishing it.
+            The candidate form has been created. You can add or modify fields of
+            the form.
           </p>
           <Button
             label="Manage Form"

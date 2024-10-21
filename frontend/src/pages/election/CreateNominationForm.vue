@@ -24,7 +24,7 @@
       <template #nav-items>
         <div class="flex flex-col gap-2">
           <h3 class="text-base font-medium border-b pb-2">
-            Create Nomination Form
+            Create Candidate Form
           </h3>
           <div class="text-sm text-primary-600">
             <span> Election: {{ election.data?.title }} </span>
@@ -38,7 +38,7 @@
     </Sidebar>
     <div class="w-full md:ml-[220px]">
       <div class="w-full flex justify-between items-center p-4">
-        <h1 class="font-sans text-3xl font-semibold">Nomination Form</h1>
+        <h1 class="font-sans text-3xl font-semibold">Candidate Form</h1>
         <Button
           label="Create Form"
           variant="solid"
