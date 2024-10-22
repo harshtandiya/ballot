@@ -23,7 +23,7 @@
                 *
               </span>
             </div>
-            <InputText class="cursor-not-allowed" :id="field.id" disabled />
+            <InputText :id="field.id" class="cursor-not-allowed" disabled />
           </div>
         </div>
       </div>
@@ -46,6 +46,16 @@ const baseFields = ref([
   {
     label: 'Email',
     id: 'email',
+    mandatory: true,
+  },
+  {
+    label: 'Designation',
+    id: 'designation',
+    mandatory: true,
+  },
+  {
+    label: 'Organization',
+    id: 'organization',
     mandatory: true,
   },
 ])
