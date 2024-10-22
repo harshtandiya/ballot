@@ -17,6 +17,10 @@ const sidebarItems = [
     route: '/dashboard',
   },
   {
+    label: 'My Submissions',
+    route: '/my-submissions',
+  },
+  {
     label: 'All Elections',
     route: '/elections',
   },

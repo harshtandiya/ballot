@@ -34,6 +34,10 @@
               :field="field"
             />
           </div>
+          <CommentSection
+            doctype="Election Candidate Application"
+            :docname="route.params.id"
+          />
         </div>
       </div>
     </div>
@@ -44,6 +48,7 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import Avatar from 'primevue/avatar'
 import Header from '@/components/Header.vue'
 import RenderFieldData from '@/components/candidature/RenderFieldData.vue'
+import CommentSection from '@/components/comments/CommentSection.vue'
 import { createResource, LoadingText } from 'frappe-ui'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
