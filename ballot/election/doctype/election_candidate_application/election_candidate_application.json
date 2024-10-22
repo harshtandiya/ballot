@@ -10,10 +10,12 @@
   "election",
   "nomination_form",
   "details_section",
-  "full_name",
   "photo",
-  "column_break_jysv",
+  "full_name",
   "email",
+  "column_break_jysv",
+  "designation",
+  "organization",
   "section_break_lodj",
   "form_response",
   "submission_meta"
@@ -87,11 +89,21 @@
    "fieldname": "submission_meta",
    "fieldtype": "JSON",
    "label": "Submission Meta"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Data",
+   "label": "Organization"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-22 01:41:58.942328",
+ "modified": "2024-10-22 11:27:06.800633",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate Application",
