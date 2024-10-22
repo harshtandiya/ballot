@@ -8,13 +8,6 @@ from ballot.utils.team import is_election_team_member
 
 
 class ElectionCandidateApplication(Document):
-    def before_insert(self):
-        if self.status != "Pending":
-            frappe.throw(
-                "You can only create a candidate application with status 'Pending'",
-                frappe.PermissionError,
-            )
-
     def before_save(self):
         if self.modified_by != self.owner and not is_election_team_member(
             self.election, self.modified_by
@@ -22,17 +15,3 @@ class ElectionCandidateApplication(Document):
             frappe.throw(
                 "You do not have the permission to edit this document", frappe.PermissionError
             )
-
-        if self.has_value_changed("status"):
-            if self.status == "Accepted":
-                self.create_candidate()
-
-    def create_candidate(self):
-        candidate = frappe.get_doc(
-            {
-                "doctype": "Election Candidate",
-                "election": self.election,
-                "linked_application": self.name,
-            }
-        )
-        candidate.insert(ignore_permissions=True)

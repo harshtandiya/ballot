@@ -75,28 +75,6 @@ class TestElectionCandidateApplication(IntegrationTestCase):
         frappe.delete_doc(ELECTION_DOC, self.election.name, force=1)
         frappe.delete_doc(TEAM_DOC, self.team.name, force=1)
 
-    def test_create_accepted_application(self):
-        # Given a candidate: CANDIDATE_1
-        # When the candidate creates an application for an election with status "Accepted"
-        # Then the application should not be created
-
-        frappe.set_user(CANDIDATE_2)
-
-        application = frappe.get_doc(
-            {
-                "doctype": APPLICATION_DOC,
-                "user": CANDIDATE_2,
-                "election": self.election.name,
-                "nomination_form": self.form.name,
-                "full_name": fake.name(),
-                "email": fake.email(),
-                "status": "Accepted",
-            }
-        )
-
-        with self.assertRaises(frappe.PermissionError):
-            application.insert()
-
     def test_modify_other_application(self):
         # Given a candidate: CANDIDATE_1
         # When the candidate tries to modify an application of another candidate
@@ -149,19 +127,3 @@ class TestElectionCandidateApplication(IntegrationTestCase):
 
         frappe.set_user('Administrator')
         _team.delete(force=1)
-
-    def test_candidate_creation(self):
-        # Given an application with status "Pending"
-        # When the application status is changed to "Accepted"
-        # Then a candidate should be created
-        frappe.set_user(TEAM_OWNER)
-
-        self.application.status = "Accepted"
-        self.application.save()
-        self.application.reload()
-
-        candidate_exists = frappe.db.exists(
-            CANDIDATE_DOC,
-            {"election": self.application.election, "linked_application": self.application.name},
-        )
-        self.assertTrue(candidate_exists)
