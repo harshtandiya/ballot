@@ -10,3 +10,6 @@ ballot/public/dist
 ballot/public/frontend
 ballot/www/frontend.html
 ballot/www/ballot.html
+
+# ignore built docs
+docs/site/

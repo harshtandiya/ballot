@@ -1,0 +1,48 @@
+site_name: Ballot
+
+nav:
+  - Home: index.md
+  - Voting in an election: voting.md
+  - Standing for election: candidature.md
+  - Organizing an election: organizing.md
+  - Technical architecture: architecture.md
+
+theme:
+  name: material
+  # logo: ./assets/fossunited-white.svg
+  # favicon: ./assets/fossunited-white.svg
+  features:
+    - navigation.sections
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+      primary: green
+      accent: teal
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+      primary: green
+      accent: light-green
+  font:
+    text: Inter
+
+plugins:
+  - glightbox
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
