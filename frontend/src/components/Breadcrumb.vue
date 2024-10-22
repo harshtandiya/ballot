@@ -21,7 +21,7 @@
       </a>
     </template>
     <template #separator>
-      <IconChevronRight class="text-primary-600" size="1.5rem" />
+      <IconChevronRight class="text-primary-600" size="1rem" />
     </template>
   </Breadcrumb>
 </template>
