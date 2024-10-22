@@ -9,8 +9,10 @@ from ballot.utils.team import is_election_team_member
 
 class ElectionCandidateApplication(Document):
     def before_save(self):
-        if self.modified_by != self.owner and not is_election_team_member(
-            self.election, self.modified_by
+        if (
+            self.modified_by != self.owner
+            and frappe.session.user != "Administrator"
+            and not is_election_team_member(self.election, self.modified_by)
         ):
             frappe.throw(
                 "You do not have the permission to edit this document", frappe.PermissionError
