@@ -22,6 +22,7 @@ import { transformFields } from '@/utils/formbuilder'
 import { computed, ref, inject } from 'vue'
 import RenderBaseFields from '@/components/candidature/RenderBaseFields.vue'
 import RenderField from './RenderField.vue'
+import { toast } from 'vue-sonner'
 import { createResource, ErrorMessage } from 'frappe-ui'
 import { useRouter } from 'vue-router'
 import RenderSection from './RenderSection.vue'
@@ -40,6 +41,18 @@ const baseFields = ref([
   {
     label: 'Email',
     fieldname: 'email',
+    mandatory: true,
+    value: '',
+  },
+  {
+    label: 'Designation',
+    fieldname: 'designation',
+    mandatory: true,
+    value: '',
+  },
+  {
+    label: 'Organization',
+    fieldname: 'organization',
     mandatory: true,
     value: '',
   },
@@ -104,15 +117,19 @@ const submitForm = createResource({
         nomination_form: props.form.name,
         full_name: baseFields.value[0]['value'],
         email: baseFields.value[1]['value'],
+        designation: baseFields.value[2]['value'],
+        organization: baseFields.value[3]['value'],
         submission_meta: JSON.stringify(fields.value),
       },
     }
   },
   onSuccess() {
+    toast.success('Form Submitted Successfully!')
     errorMessages.value = ''
     router.replace({ name: 'My Submissions' })
   },
   onError(err) {
+    toast.error('Error while submitting the form!')
     errorMessages.value = err.errorMessages
   },
 })

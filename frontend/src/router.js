@@ -15,6 +15,11 @@ const routes = [
         component: () => import('@/pages/Dashboard.vue'),
       },
       {
+        path: 'my-submissions',
+        name: 'My Submissions',
+        component: () => import('@/pages/submissions/MySubmissions.vue'),
+      },
+      {
         path: 'elections',
         name: 'All Elections',
         component: () => import('@/pages/AllElections.vue'),
@@ -95,9 +100,10 @@ const routes = [
     meta: { isPublicPage: true },
   },
   {
-    path: '/my-submissions',
-    name: 'My Submissions',
-    component: () => import('@/pages/submissions/MySubmissions.vue'),
+    path: '/election/:slug/c/:id',
+    name: 'Candidature Submission Public',
+    component: () => import('@/pages/election/CandidatureSubmissionPublic.vue'),
+    meta: { isPublicPage: true },
   },
 ]
 
