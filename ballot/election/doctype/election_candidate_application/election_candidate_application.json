@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "hash",
  "creation": "2024-09-25 00:35:47.430030",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,6 +10,7 @@
   "user",
   "election",
   "nomination_form",
+  "status",
   "details_section",
   "photo",
   "full_name",
@@ -99,14 +101,23 @@
    "fieldname": "organization",
    "fieldtype": "Data",
    "label": "Organization"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nAccepted\nRejected",
+   "permlevel": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-22 11:27:06.800633",
+ "modified": "2024-10-23 16:23:45.400958",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Candidate Application",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {
@@ -114,6 +125,18 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
    "print": 1,
    "read": 1,
    "report": 1,
