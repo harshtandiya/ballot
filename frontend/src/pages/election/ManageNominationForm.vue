@@ -44,6 +44,24 @@
         />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
+        <div class="flex items-start col-span-2 gap-2 mb-3">
+          <Checkbox
+            id="accept_incoming_applications"
+            v-model="candidateForm.data.accept_incoming_applications"
+            binary
+          />
+          <div class="flex flex-col items-start">
+            <label
+              for="accept_incoming_applications"
+              class="text-base font-medium"
+            >
+              Accept All Incoming Applications
+            </label>
+            <small class="text-primary-600">
+              Accept all the incoming candidature applications automatically
+            </small>
+          </div>
+        </div>
         <FloatLabel variant="on">
           <Select
             id="formStatus"
@@ -87,6 +105,7 @@ import FloatLabel from 'primevue/floatlabel'
 import Select from 'primevue/select'
 import Editor from 'primevue/editor'
 import Chip from 'primevue/chip'
+import Checkbox from 'primevue/checkbox'
 import Sidebar from '@/components/Sidebar.vue'
 import FormBaseFields from '@/components/candidature/FormBaseFields.vue'
 import FormBuilder from '@/components/form/Builder.vue'
@@ -156,6 +175,8 @@ const saveForm = createResource({
       doctype: 'Election Nomination Form',
       name: route.params.id,
       fieldname: {
+        accept_incoming_applications:
+          candidateForm.data.accept_incoming_applications,
         status: candidateForm.data.status,
         description: candidateForm.data.description,
         fields_meta: JSON.stringify(fields.value),
