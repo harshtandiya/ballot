@@ -127,3 +127,65 @@ class TestElectionCandidateApplication(IntegrationTestCase):
 
         frappe.set_user('Administrator')
         _team.delete(force=1)
+
+    def test_create_accepted_application(self):
+        # Given a candidate: CANDIDATE_1
+        # When the candidate creates an application for an election with status "Accepted"
+        # Then the application should not be created
+          
+        frappe.set_user(CANDIDATE_2)
+        application = frappe.get_doc(
+            {
+                "doctype": APPLICATION_DOC,
+                "user": CANDIDATE_2,
+                "election": self.election.name,
+                "nomination_form": self.form.name,
+                "full_name": fake.name(),
+                "email": fake.email(),
+                "status": "Accepted",
+            }
+        )
+        with self.assertRaises(frappe.PermissionError):
+            application.insert()
+
+    def test_candidate_creation(self):
+        # Given an application with status "Pending"
+        # When the application status is changed to "Accepted"
+        # Then a candidate should be created
+        frappe.set_user(TEAM_OWNER)
+        self.application.status = "Accepted"
+        self.application.save()
+        self.application.reload()
+        candidate_exists = frappe.db.exists(
+            CANDIDATE_DOC,
+            {"election": self.application.election, "linked_application": self.application.name},
+        )
+        self.assertTrue(candidate_exists)
+
+    def test_status_change_when_allowed_incoming(self):
+        # When a nomination form has enabled 'Accept Incoming Applications'
+        # Then a submission created should automatically change the status to 'Accepted'
+        frappe.set_user(TEAM_OWNER)
+        self.form.accept_incoming_applications = 1
+        self.form.save()
+        self.form.reload()
+
+        frappe.set_user(CANDIDATE_2)
+        application = frappe.get_doc(
+            {
+                "doctype": APPLICATION_DOC,
+                "user": CANDIDATE_2,
+                "election": self.election.name,
+                "nomination_form": self.form.name,
+                "full_name": fake.name(),
+                "email": fake.email(),
+                "status": "Pending"
+            }
+        )
+        application.insert()
+
+        application.reload()
+        self.assertTrue(application.status == 'Accepted')
+
+        frappe.set_user('Administrator')
+        application.delete(force=1)
