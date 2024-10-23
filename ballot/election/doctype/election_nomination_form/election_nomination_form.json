@@ -7,8 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "status",
-  "column_break_horj",
   "election",
+  "column_break_horj",
+  "accept_incoming_applications",
   "section_break_aztt",
   "description",
   "form_question",
@@ -54,6 +55,13 @@
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "label": "Description"
+  },
+  {
+   "default": "0",
+   "description": "Accept all the incoming candidature applications automatically",
+   "fieldname": "accept_incoming_applications",
+   "fieldtype": "Check",
+   "label": "Accept Incoming Applications"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -64,7 +72,7 @@
    "link_fieldname": "nomination_form"
   }
  ],
- "modified": "2024-10-18 14:16:19.353946",
+ "modified": "2024-10-23 13:13:42.193364",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Nomination Form",
