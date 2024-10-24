@@ -89,6 +89,8 @@
             id="description"
             v-model="candidateForm.data.description"
             class="mb-6"
+            placeholder="Write a description..."
+            editor-style="height: 180px"
           />
         </div>
       </div>

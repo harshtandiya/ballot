@@ -34,6 +34,7 @@
         :options="field.options.split('\n')"
         class="h-full"
         :class="{ Editor: 'h-[200px]' }[field.fieldtype]"
+        editor-style="height: 180px"
       ></component>
     </div>
   </div>

@@ -69,6 +69,7 @@
         size="small"
         disabled
         readonly
+        editor-style="height: 180px"
       ></component>
     </div>
   </div>
