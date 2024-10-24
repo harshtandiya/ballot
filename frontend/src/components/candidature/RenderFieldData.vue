@@ -32,7 +32,7 @@
         class="text-base"
         v-html="field.value"
       ></div>
-      <p v-else class="text-base mt-2">{{ field.value }}</p>
+      <p v-else class="text-base mt-2">{{ field.value || 'No response' }}</p>
     </Fieldset>
   </div>
 </template>
