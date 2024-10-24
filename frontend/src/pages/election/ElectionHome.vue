@@ -10,7 +10,10 @@
         <h1 class="text-3xl font-bold">
           {{ election.data.title }}
         </h1>
-        <div v-html="election.data.description"></div>
+        <div
+          class="text-base &>*[!p-0]"
+          v-html="election.data.description"
+        ></div>
       </div>
       <hr />
       <div class="w-full grid grid-cols-1 md:grid-cols-2">

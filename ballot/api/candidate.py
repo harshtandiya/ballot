@@ -15,7 +15,7 @@ def get_all_candidates(election: str):
 
     candidates = frappe.db.get_all(
         "Election Candidate Application",
-        {"election": election},
+        {"election": election, "status": "Accepted"},
         ["full_name", "designation", "organization", "photo", "submission_meta", "name"],
         page_length=999,
         order_by="creation",
