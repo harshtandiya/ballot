@@ -1,14 +1,23 @@
 <template>
   <div
-    class="relative block min-h-0 flex-shrink-0 overflow-hidden hover:overflow-auto"
+    class="relative hidden md:block min-h-0 flex-shrink-0 overflow-hidden hover:overflow-auto"
+    :class="toggleSidebar ? '!block' : ''"
   >
     <div
-      class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-primary-50 p-4"
+      class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-primary-50 p-4 z-50 transform transition-transform duration-500 ease-in-out"
+      :class="toggleSidebar ? 'translate-x-0' : '-translate-x-full'"
     >
       <div class="flex flex-col gap-4">
         <slot name="branding">
-          <div class="mb-3">
+          <div class="mb-3 flex justify-between items-center">
             <div class="font-sans text-2xl font-semibold">Ballot.</div>
+            <Button
+              class="block md:hidden -mr-8 !rounded-full w-8 h-8"
+              @click="toggleSidebar = false"
+              variant="outline"
+            >
+              <IconArrowLeft size="1rem" />
+            </Button>
           </div>
         </slot>
         <slot name="pre-nav-items"></slot>
@@ -81,17 +90,37 @@
       </slot>
     </div>
   </div>
+
+  <!-- For mobile screens -->
+  <div class="block md:hidden">
+    <div class="w-full bg-white px-4 py-3 border-b flex gap-1 items-center">
+      <Button variant="ghost" @click="toggleSidebar = true">
+        <IconMenu2 size="1rem" />
+      </Button>
+      <div>
+        <div class="font-sans text-2xl font-semibold">Ballot.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark background overlay -->
+  <div
+    v-if="toggleSidebar"
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500"
+    @click="toggleSidebar = false"
+  ></div>
 </template>
 <script setup>
-import { IconUserFilled } from '@tabler/icons-vue'
+import { IconUserFilled, IconMenu2, IconArrowLeft } from '@tabler/icons-vue'
 import { createResource, Popover } from 'frappe-ui'
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { getRedirectUrl } from '@/utils/helpers'
 import { useRoute, useRouter } from 'vue-router'
 
 const session = inject('$session')
 const route = useRoute()
 const router = useRouter()
+const toggleSidebar = ref(false)
 
 const props = defineProps({
   sidebarItems: {

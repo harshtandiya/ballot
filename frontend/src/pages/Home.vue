@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex flex-col md:flex-row">
     <Sidebar :sidebar-items="sidebarItems" />
     <div class="w-full md:ml-[220px]">
       <RouterView />
