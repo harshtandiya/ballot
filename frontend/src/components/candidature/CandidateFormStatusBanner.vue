@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between items-center p-4 bg-primary-50 border rounded"
+    class="flex flex-col md:flex-row gap-4 justify-between items-center p-4 bg-primary-50 border rounded"
   >
     <div>
       <div v-if="hasForm">
@@ -27,9 +27,10 @@
         </h4>
       </div>
     </div>
-    <div>
+    <div class="w-full md:w-fit">
       <Button
         v-if="hasForm && form.status == 'Live'"
+        class="w-full"
         variant="solid"
         label="Apply"
         icon-right="arrow-right"
