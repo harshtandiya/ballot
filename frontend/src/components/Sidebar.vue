@@ -5,7 +5,9 @@
   >
     <div
       class="fixed flex justify-between min-h-screen w-[220px] flex-col border-r bg-primary-50 p-4 z-50 transform transition-transform duration-500 ease-in-out"
-      :class="toggleSidebar ? 'translate-x-0' : '-translate-x-full'"
+      :class="
+        toggleSidebar ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+      "
     >
       <div class="flex flex-col gap-4">
         <slot name="branding">
@@ -106,7 +108,7 @@
   <!-- Dark background overlay -->
   <div
     v-if="toggleSidebar"
-    class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500"
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 md:hidden"
     @click="toggleSidebar = false"
   ></div>
 </template>
