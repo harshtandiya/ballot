@@ -15,7 +15,7 @@
       </h1>
     </div>
     <div class="my-4 space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col md:grid grid-cols-1 md:grid-cols-2 gap-4">
         <FloatLabel variant="on">
           <Select
             id="status"
