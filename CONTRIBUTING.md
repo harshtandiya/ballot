@@ -15,7 +15,7 @@
   Git repository into the `apps/` folder in the bench directory
 * Create a [new site](https://frappeframework.com/docs/user/en/tutorial/create-a-site)
   using `bench new-site test.ballot`
-* Install the Ballot app on the new site `bench --site test.ballot install-app fossunited`
+* Install the Ballot app on the new site `bench --site test.ballot install-app ballot`
 * [Access the site conveniently](https://frappeframework.com/docs/user/en/tutorial/create-a-site#access-site-in-your-browser)
   from your computer using `bench --site test.ballot add-to-hosts`
 * Finally, run `bench start` and access the site in your browser by navigating
