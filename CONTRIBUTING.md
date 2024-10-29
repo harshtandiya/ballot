@@ -18,9 +18,11 @@
 * Install the Ballot app on the new site `bench --site test.ballot install-app ballot`
 * [Access the site conveniently](https://frappeframework.com/docs/user/en/tutorial/create-a-site#access-site-in-your-browser)
   from your computer using `bench --site test.ballot add-to-hosts`
-* Finally, run `bench start` and access the site in your browser by navigating
-  to `http://test.ballot:<port number>`
+* Finally, run `bench start` to launch the backend
 
 The frappe framework-powered backend application should now be running. To run
-the Vue.js-powered frontend application, run `yarn dev` from the `frontend/`
-directry.
+the Vue.js-powered frontend application, run `yarn dev` from the root
+directory.
+
+The website can now be accessed from `http://test.ballot:8080` and the backend
+frappe app can be accessed from `http://test.ballot:<port number>`.
