@@ -20,3 +20,7 @@
   from your computer using `bench --site test.ballot add-to-hosts`
 * Finally, run `bench start` and access the site in your browser by navigating
   to `http://test.ballot:<port number>`
+
+The frappe framework-powered backend application should now be running. To run
+the Vue.js-powered frontend application, run `yarn dev` from the `frontend/`
+directry.
