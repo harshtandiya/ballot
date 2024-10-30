@@ -18,7 +18,7 @@
 * Install the Ballot app on the new site `bench --site test.ballot install-app ballot`
 * [Access the site conveniently](https://frappeframework.com/docs/user/en/tutorial/create-a-site#access-site-in-your-browser)
   from your computer using `bench --site test.ballot add-to-hosts`
-* Add `"ignore_csrf": "y"` to the `sites/common_site_config.json`
+* Add `"ignore_csrf":1` to the `sites/common_site_config.json`
   configuration file. Without this, performing operating on the frontend app
   raises CSRF errors
 * Finally, run `bench start` to launch the backend
