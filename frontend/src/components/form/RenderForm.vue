@@ -33,26 +33,37 @@ const router = useRouter()
 
 const baseFields = ref([
   {
+    label: 'Photo',
+    fieldname: 'photo',
+    type: 'Attach Image',
+    mandatory: false,
+    value: '',
+  },
+  {
     label: 'Full Name',
     fieldname: 'full_name',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Email',
     fieldname: 'email',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Designation',
     fieldname: 'designation',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Organization',
     fieldname: 'organization',
+    type: 'data',
     mandatory: true,
     value: '',
   },
