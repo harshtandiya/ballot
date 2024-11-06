@@ -33,26 +33,37 @@ const router = useRouter()
 
 const baseFields = ref([
   {
+    label: 'Photo',
+    fieldname: 'photo',
+    type: 'Attach Image',
+    mandatory: false,
+    value: '',
+  },
+  {
     label: 'Full Name',
     fieldname: 'full_name',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Email',
     fieldname: 'email',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Designation',
     fieldname: 'designation',
+    type: 'data',
     mandatory: true,
     value: '',
   },
   {
     label: 'Organization',
     fieldname: 'organization',
+    type: 'data',
     mandatory: true,
     value: '',
   },
@@ -115,10 +126,11 @@ const submitForm = createResource({
         user: session.user,
         election: props.election.name,
         nomination_form: props.form.name,
-        full_name: baseFields.value[0]['value'],
-        email: baseFields.value[1]['value'],
-        designation: baseFields.value[2]['value'],
-        organization: baseFields.value[3]['value'],
+        photo: baseFields.value[0]['value'],
+        full_name: baseFields.value[1]['value'],
+        email: baseFields.value[2]['value'],
+        designation: baseFields.value[3]['value'],
+        organization: baseFields.value[4]['value'],
         submission_meta: JSON.stringify(fields.value),
       },
     }

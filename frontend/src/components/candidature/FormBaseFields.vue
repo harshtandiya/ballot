@@ -23,7 +23,15 @@
                 *
               </span>
             </div>
-            <InputText :id="field.id" class="cursor-not-allowed" disabled />
+            <div v-if="field.type == 'Attach Image'" class="cursor-not-allowed">
+              <Button label="Upload Image" disabled />
+            </div>
+            <InputText
+              v-else
+              :id="field.id"
+              class="cursor-not-allowed"
+              disabled
+            />
           </div>
         </div>
       </div>
@@ -39,24 +47,34 @@ import { ref } from 'vue'
 
 const baseFields = ref([
   {
+    label: 'Photo',
+    id: 'photo',
+    mandatory: false,
+    type: 'Attach Image',
+  },
+  {
     label: 'Full Name',
     id: 'full_name',
     mandatory: true,
+    type: 'Data',
   },
   {
     label: 'Email',
     id: 'email',
     mandatory: true,
+    type: 'Data',
   },
   {
     label: 'Designation',
     id: 'designation',
     mandatory: true,
+    type: 'Data',
   },
   {
     label: 'Organization',
     id: 'organization',
     mandatory: true,
+    type: 'Data',
   },
 ])
 </script>
