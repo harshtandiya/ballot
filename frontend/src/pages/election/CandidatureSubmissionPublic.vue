@@ -34,6 +34,11 @@
               :field="field"
             />
           </div>
+          <LikeButton
+            v-if="session.user"
+            reference-doctype="Election Candidate Application"
+            :reference-name="formDetails.data.name"
+          />
           <CommentSection
             doctype="Election Candidate Application"
             :docname="route.params.id"
@@ -49,11 +54,13 @@ import Avatar from 'primevue/avatar'
 import Header from '@/components/Header.vue'
 import RenderFieldData from '@/components/candidature/RenderFieldData.vue'
 import CommentSection from '@/components/comments/CommentSection.vue'
+import LikeButton from '@/components/ui/LikeButton.vue'
 import { createResource, LoadingText } from 'frappe-ui'
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const session = inject('$session')
 
 const breadcrumbItems = ref([
   {
