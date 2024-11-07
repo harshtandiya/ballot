@@ -15,8 +15,8 @@
             <div class="font-sans text-2xl font-semibold">Ballot.</div>
             <Button
               class="block md:hidden -mr-8 !rounded-full w-8 h-8"
-              @click="toggleSidebar = false"
               variant="outline"
+              @click="toggleSidebar = false"
             >
               <IconArrowLeft size="1rem" />
             </Button>
@@ -49,6 +49,7 @@
         <slot name="documentation">
           <p
             class="text-sm leading-normal tracking-tight font-medium text-primary-600"
+            v-if="hasDocs"
           >
             Need help? Checkout the Ballot
             <span class="flex items-center gap-1">
