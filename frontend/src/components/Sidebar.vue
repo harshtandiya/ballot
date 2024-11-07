@@ -45,8 +45,21 @@
         </slot>
         <slot name="post-nav-items"></slot>
       </div>
-      <slot name="user-actions">
-        <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4">
+        <slot name="documentation">
+          <p
+            class="text-sm leading-normal tracking-tight font-medium text-primary-600"
+          >
+            Need help? Checkout the Ballot
+            <span class="flex items-center gap-1">
+              <a :href="docLink" target="_blank" class="underline">
+                Documentation
+              </a>
+              <IconExternalLink size="1rem" />
+            </span>
+          </p>
+        </slot>
+        <slot name="user-actions">
           <div class="flex items-center justify-between text-gray-800">
             <div class="flex items-center gap-2">
               <img
@@ -88,8 +101,8 @@
               </Popover>
             </div>
           </div>
-        </div>
-      </slot>
+        </slot>
+      </div>
     </div>
   </div>
 
@@ -113,7 +126,12 @@
   ></div>
 </template>
 <script setup>
-import { IconUserFilled, IconMenu2, IconArrowLeft } from '@tabler/icons-vue'
+import {
+  IconUserFilled,
+  IconMenu2,
+  IconArrowLeft,
+  IconExternalLink,
+} from '@tabler/icons-vue'
 import { createResource, Popover } from 'frappe-ui'
 import { inject, ref } from 'vue'
 import { getRedirectUrl } from '@/utils/helpers'
@@ -129,6 +147,16 @@ const props = defineProps({
     type: Array,
     default() {
       return []
+    },
+  },
+  hasDocs: {
+    type: Boolean,
+    default: true,
+  },
+  docLink: {
+    type: String,
+    default() {
+      return 'https://harshtandiya.github.io/ballot/'
     },
   },
 })
