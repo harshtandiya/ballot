@@ -39,7 +39,7 @@ def get_candidate_details(candidate: str):
     form = frappe.db.get_value(
         "Election Candidate Application",
         candidate,
-        ["photo", "full_name", "designation", "organization", "submission_meta"],
+        ["photo", "full_name", "designation", "organization", "submission_meta", "name"],
         as_dict=1,
     )
 
