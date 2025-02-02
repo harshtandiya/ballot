@@ -72,7 +72,7 @@
    "link_fieldname": "nomination_form"
   }
  ],
- "modified": "2024-10-23 13:13:42.193364",
+ "modified": "2025-02-03 01:43:14.373587",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Nomination Form",
@@ -97,6 +97,10 @@
    "read": 1,
    "role": "Election Team Member",
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "sort_field": "modified",
