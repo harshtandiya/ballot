@@ -97,7 +97,6 @@ const routes = [
     path: '/election/:slug/apply',
     name: 'Nomination Form',
     component: () => import('@/pages/election/CandidatureFormPublic.vue'),
-    meta: { isPublicPage: true },
   },
   {
     path: '/election/:slug/c/:id',
