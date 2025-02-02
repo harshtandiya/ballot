@@ -1,11 +1,12 @@
 <template>
   <div class="flex flex-col gap-2 mb-4">
     <h3 class="text-lg text-primary-700 font-medium mb-2">Personal Details</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div class="flex flex-col md:grid md:grid-cols-2 gap-2">
       <div
         v-for="(field, index) in fields"
         :key="field.fieldname"
         class="flex flex-col gap-2 h-fit"
+        :class="{ 'col-span-2': field.type == 'Attach Image' }"
       >
         <div class="flex items-start gap-1">
           <label :for="field.fieldname" class="text-sm">
