@@ -21,7 +21,6 @@
 import { transformFields } from '@/utils/formbuilder'
 import { computed, ref, inject } from 'vue'
 import RenderBaseFields from '@/components/candidature/RenderBaseFields.vue'
-import RenderField from './RenderField.vue'
 import { toast } from 'vue-sonner'
 import { createResource, ErrorMessage } from 'frappe-ui'
 import { useRouter } from 'vue-router'
