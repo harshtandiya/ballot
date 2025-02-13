@@ -48,8 +48,8 @@
       <div class="flex flex-col gap-4">
         <slot name="documentation">
           <p
-            class="text-sm leading-normal tracking-tight font-medium text-primary-600"
             v-if="hasDocs"
+            class="text-sm leading-normal tracking-tight font-medium text-primary-600"
           >
             Need help? Checkout the Ballot
             <span class="flex items-center gap-1">

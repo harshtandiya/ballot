@@ -29,7 +29,7 @@
       </div>
       <component
         :is="getComponent"
-        id="field.fieldname"
+        :id="field.fieldname"
         v-model="fields[getFieldIndex(field.fieldname)]['value']"
         :options="field.options.split('\n')"
         class="h-full"

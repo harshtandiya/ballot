@@ -1,5 +1,10 @@
 <template>
-  <router-link :to="submission.route">
+  <router-link
+    :to="{
+      name: 'Edit Candiature Submission',
+      params: { id: submission.name },
+    }"
+  >
     <Card
       class="!shadow-none border border-primary-200 hover:border-primary-500 hover:cursor-pointer transition-colors ease-in-out"
     >
@@ -14,11 +19,12 @@
                 submission.status
               ]
             "
-          ></Tag>
-          <span class="text-sm"
-            >Submitted on
-            {{ dayjs(submission.creation).format('DD MMM YYYY') }}</span
           >
+          </Tag>
+          <span class="text-sm">
+            Submitted on
+            {{ dayjs(submission.creation).format('DD MMM YYYY') }}
+          </span>
         </div>
       </template>
     </Card>
