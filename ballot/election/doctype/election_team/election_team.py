@@ -93,7 +93,7 @@ class ElectionTeam(Document):
             docshare = frappe.get_doc(
                 {
                     "doctype": "DocShare",
-                    "share_doctype": "Election Team",
+                    "share_doctype": self.doctype,
                     "share_name": self.name,
                     "user": user,
                     "read": 1,
