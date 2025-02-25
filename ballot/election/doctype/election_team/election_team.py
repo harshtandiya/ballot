@@ -6,52 +6,53 @@ from frappe.model.document import Document
 
 
 class ElectionTeam(Document):
+    ROLE = "Election Team Member"
+
     def before_insert(self):
-        self.append(
-            "members",
-            {
-                "user": self.owner,
-            },
-        )
+        """Automatically add the creator as a member."""
+        self.append("members", {"user": self.owner})
 
     def before_save(self):
+        """Handle member role assignment and removal."""
         self.add_team_member_role()
-        self.handle_member_removal()
+        self.remove_team_member_role()
 
     def add_team_member_role(self):
-        ROLE = "Election Team Member"
-
+        """Ensure all team members have the required role."""
         for member in self.members:
-            # Add the role to the user
             user = frappe.get_doc("User", member.user)
-            existing_roles = {d.role: d for d in user.get("roles")}
+            user_roles = {role.role for role in user.get("roles")}
 
-            if ROLE in existing_roles:
-                continue
+            if self.ROLE not in user_roles:
+                user.append("roles", {"role": self.ROLE, "doctype": "Has Role"})
+                user.save(ignore_permissions=True)
 
-            user.append("roles", {"role": ROLE, "doctype": "Has Role"})
-            user.save(ignore_permissions=True)
-
-    def handle_member_removal(self):
+    def remove_team_member_role(self):
+        """Remove the role from users who are no longer in the team."""
         prev_doc = self.get_doc_before_save()
         if not prev_doc:
             return
 
-        ROLE = "Election Team Member"
+        current_users = {member.user for member in self.members}
 
         for member in prev_doc.members:
-            if member.user not in [m.user for m in self.members]:
-                has_other_teams = frappe.db.exists(
-                    "Election Team Member", {"user": member.user, "parent": ("!=", self.name)}
-                )
-
-                if has_other_teams:
+            if member.user not in current_users:
+                if self.user_in_other_teams(member.user):
                     continue
 
-                # Remove the role from the user
-                user = frappe.get_doc("User", member.user)
-                existing_roles = {d.role: d for d in user.get("roles")}
+                self.remove_role_from_user(member.user)
 
-                if ROLE in existing_roles:
-                    user.get("roles").remove(existing_roles[ROLE])
-                    user.save(ignore_permissions=True)
+    def user_in_other_teams(self, user):
+        """Check if the user is part of other Election Teams."""
+        return frappe.db.exists(
+            self.ROLE, {"user": user, "parent": ("!=", self.name)}
+        )
+
+    def remove_role_from_user(self, user):
+        """Remove the role from a user if they are not part of any other teams."""
+        user_doc = frappe.get_doc("User", user)
+        role_map = {role.role: role for role in user_doc.get("roles")}
+
+        if self.ROLE in role_map:
+            user_doc.get("roles").remove(role_map[self.ROLE])
+            user_doc.save(ignore_permissions=True)
