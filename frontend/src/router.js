@@ -30,6 +30,7 @@ const routes = [
     path: '/my-team/:id',
     name: 'Team Dashboard',
     component: () => import('@/pages/TeamDashboard.vue'),
+    redirect: { name: 'Team Details' },
     children: [
       {
         path: '',
