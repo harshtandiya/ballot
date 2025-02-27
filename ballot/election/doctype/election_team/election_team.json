@@ -26,7 +26,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 00:57:30.719301",
+ "modified": "2025-02-26 18:52:20.239819",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election Team",
@@ -47,14 +47,7 @@
   },
   {
    "create": 1,
-   "role": "All",
-   "write": 1
-  },
-  {
-   "create": 1,
-   "read": 1,
-   "role": "Election Team Member",
-   "write": 1
+   "role": "All"
   }
  ],
  "show_title_field_in_link": 1,
