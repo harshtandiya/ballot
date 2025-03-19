@@ -15,7 +15,9 @@
   "column_break_fwoq",
   "organizing_team",
   "section_break_gyas",
-  "description"
+  "description",
+  "vote_settings_tab",
+  "is_voting_live"
  ],
  "fields": [
   {
@@ -74,11 +76,22 @@
   {
    "fieldname": "column_break_chmz",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vote_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vote Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_voting_live",
+   "fieldtype": "Check",
+   "label": "Is Voting Live?"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-16 16:42:36.035841",
+ "modified": "2025-03-19 23:32:54.711187",
  "modified_by": "Administrator",
  "module": "Election",
  "name": "Election",
@@ -109,6 +122,7 @@
    "role": "All"
   }
  ],
+ "row_format": "Dynamic",
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
