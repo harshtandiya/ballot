@@ -48,6 +48,7 @@ const routes = [
     path: '/my-elections/:id',
     name: 'Election Dashboard',
     component: () => import('@/pages/election/ElectionDashboard.vue'),
+    redirect: { name: 'Election Details' },
     children: [
       {
         path: '',
