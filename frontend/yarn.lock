@@ -288,26 +288,45 @@
   dependencies:
     "@primeuix/utils" "^0.2.0"
 
+"@primeuix/styled@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.5.0.tgz#90fc8a0930732c91a2ffacc489b3ddd5b7eccf60"
+  integrity sha512-k5CTQ+10cXIXxZTep7sktmYe8lJkjmUaFVDAc1OCsWTJR+bhBy/s6zWIatGljVtuf3RmTSxtlrHQeFLjPmdUNQ==
+  dependencies:
+    "@primeuix/utils" "^0.5.0"
+
+"@primeuix/styles@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@primeuix/styles/-/styles-1.0.0.tgz#7abd7ec1c230c398efe6e27e12e5fbeb23fb9f19"
+  integrity sha512-j/TlbqihLNMP37zFNjxac5dTRaQEf5Ldrv0P7NwKigCCc/+MI5j4MddxDw1LnxkGhWCJ1Gjbt9uwyQteWtSv7A==
+  dependencies:
+    "@primeuix/styled" "^0.5.0"
+
 "@primeuix/utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.2.0.tgz#42bde7c87f6103460256721731138378793f936f"
   integrity sha512-AaDIeRFlsbkVTk2s0mlEjnGSLi31X669NVwo+n+AVAnBdDiQznjipNTpHbOobVBtjOKZize74PChK6uoaSBRUw==
 
-"@primevue/core@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.1.0.tgz#a67a11bb3c475841a4021a9a17b4edeaeace854b"
-  integrity sha512-YulYm+PtoYSyLv/pNl3oyjvN+C9Ba/RSpW3bZAVkMRz9SWSA6lj2QaN+/9uxhokWZPL63zCHsHzIBV5YMvZshQ==
-  dependencies:
-    "@primeuix/styled" "^0.2.0"
-    "@primeuix/utils" "^0.2.0"
+"@primeuix/utils@^0.5.0", "@primeuix/utils@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.5.1.tgz#7bca8a849f1d4d050f4d6a4bb8a179d0b0c2e99f"
+  integrity sha512-/bYirtF3gJOGrRQfQ5tUyQOLEria7wg/UCqvpIydTAxLmj/UWgWwh2kAjYVp49eldm1+2sk4+TDkbAz8XcPpew==
 
-"@primevue/icons@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.1.0.tgz#e8829d40ff88f6463a551a3dc47283ec90fc1edf"
-  integrity sha512-npY8Jy3HX1+Qbv1jCRdAevOcOj355b0x1Wmepa7omhgQFIUVs2o18HGohYml4HJpmEAu6aKnUIhhodFMuglMeQ==
+"@primevue/core@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.3.1.tgz#c2fdfd5c8722c2f32ade07c02ada2f12449ca5a5"
+  integrity sha512-Z2JfYk7I477qdlWHH5yiqUK0cwNe5joZJLwFtSEFkmBi/ocXvkGNAYk8XYNCz6UTDePUQSHKseKJxMkFHlfRtw==
   dependencies:
-    "@primeuix/utils" "^0.2.0"
-    "@primevue/core" "4.1.0"
+    "@primeuix/styled" "^0.5.0"
+    "@primeuix/utils" "^0.5.1"
+
+"@primevue/icons@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.3.1.tgz#bf10f8d0e29e52276ed1f9a7a61ee9a68ec6bcb3"
+  integrity sha512-67GFk/NdbVDuPx4tlbO01BBWujLiZTJJJSce63dvLr7082YukPfrQq4Kru+y5Qmrfkq0uaP1I3+Ut9Skr6ATfQ==
+  dependencies:
+    "@primeuix/utils" "^0.5.1"
+    "@primevue/core" "4.3.1"
 
 "@primevue/themes@^4.1.0":
   version "4.1.0"
@@ -1736,15 +1755,16 @@ prettier@^3.3.2:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
   integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
 
-primevue@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.1.0.tgz#a960eeffd78b3a227bb56e366e27caae5376f810"
-  integrity sha512-iR/RysaTnZeIG3UVxdhazU7MA8nEODOpHk8WSINwYU0WMsA/ZghbchHOD5a/LYuLuZa3V03j7mX4LMKroeV+ag==
+primevue@^4.2.5:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.3.1.tgz#6eebe93a57ae18709ffa8d5b0609642a5cea3efe"
+  integrity sha512-NSUpcWf2WpXgqOvjgXu5zQM3E5UEXoA2iXLi6xV+h1SBZ1TmgNfrjme96KRzfUY2RBsI0rTSUuPv0I+fXvtcmA==
   dependencies:
-    "@primeuix/styled" "^0.2.0"
-    "@primeuix/utils" "^0.2.0"
-    "@primevue/core" "4.1.0"
-    "@primevue/icons" "4.1.0"
+    "@primeuix/styled" "^0.5.0"
+    "@primeuix/styles" "^1.0.0"
+    "@primeuix/utils" "^0.5.1"
+    "@primevue/core" "4.3.1"
+    "@primevue/icons" "4.3.1"
 
 prosemirror-changeset@^2.2.0:
   version "2.2.0"
@@ -1914,10 +1934,10 @@ quill-delta@^5.1.0:
     lodash.clonedeep "^4.5.0"
     lodash.isequal "^4.5.0"
 
-quill@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/quill/-/quill-2.0.2.tgz#5b26bc10a74e9f7fdcfdb5156b3133a3ebf0a814"
-  integrity sha512-QfazNrhMakEdRG57IoYFwffUIr04LWJxbS/ZkidRFXYCQt63c1gK6Z7IHUXMx/Vh25WgPBU42oBaNzQ0K1R/xw==
+quill@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/quill/-/quill-2.0.3.tgz#752765a31d5a535cdc5717dc49d4e50099365eb1"
+  integrity sha512-xEYQBqfYx/sfb33VJiKnSJp8ehloavImQ2A6564GAbqG55PGw1dAWUn1MUbQB62t0azawUS2CZZhWCjO8gRvTw==
   dependencies:
     eventemitter3 "^5.0.1"
     lodash-es "^4.17.21"

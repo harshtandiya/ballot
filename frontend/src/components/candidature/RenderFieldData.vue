@@ -29,7 +29,7 @@
       </template>
       <div
         v-if="field.fieldtype === 'Editor'"
-        class="text-base"
+        class="text-base prose"
         v-html="field.value"
       ></div>
       <p v-else class="text-base mt-2">{{ field.value || 'No response' }}</p>
