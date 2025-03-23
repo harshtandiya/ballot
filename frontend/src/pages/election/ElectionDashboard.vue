@@ -29,6 +29,7 @@
 import Sidebar from '@/components/Sidebar.vue'
 import { useRoute } from 'vue-router'
 import { createResource } from 'frappe-ui'
+import { provide } from 'vue'
 
 const route = useRoute()
 
@@ -41,7 +42,12 @@ const election = createResource({
     }
   },
   auto: true,
+  onSuccess() {
+    provide('$election', election)
+  },
 })
+
+provide('$election', election)
 
 const sidebarItems = [
   {
@@ -51,6 +57,10 @@ const sidebarItems = [
   {
     label: 'Candidates',
     route: `/my-elections/${route.params.id}/nomination`,
+  },
+  {
+    label: 'Voting',
+    route: `/my-elections/${route.params.id}/voting`,
   },
 ]
 </script>

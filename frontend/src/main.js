@@ -6,6 +6,7 @@ import App from './App.vue'
 
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
+import Tooltip from 'primevue/tooltip'
 import { definePreset } from '@primevue/themes'
 
 import {
@@ -21,6 +22,7 @@ let app = createApp(App)
 
 setConfig('resourceFetcher', frappeRequest)
 
+app.directive('tooltip', Tooltip)
 app.use(router)
 app.use(resourcesPlugin)
 

@@ -25,3 +25,7 @@ export const getRelativeTime = (datetime) => {
     return date.fromNow()
   }
 }
+
+export const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text)
+}

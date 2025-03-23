@@ -60,6 +60,11 @@ const routes = [
         name: 'Nomination Dashboard',
         component: () => import('@/pages/election/NominationFormDashboard.vue'),
       },
+      {
+        path: 'voting',
+        name: 'Voting Dashboard',
+        component: () => import('@/pages/voting/VotingDashboard.vue'),
+      },
     ],
   },
   {
