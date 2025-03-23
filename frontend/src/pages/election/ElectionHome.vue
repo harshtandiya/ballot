@@ -16,7 +16,7 @@
         ></div>
       </div>
       <hr />
-      <div class="w-full grid grid-cols-1 md:grid-cols-2">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-4">
         <div v-if="hasCandidateForm.loading"></div>
         <CandidateFormStatusBanner
           v-else-if="hasCandidateForm.data && candidateForm.data"
@@ -28,6 +28,10 @@
           v-else
           class="my-4"
           :has-form="hasCandidateForm.data"
+        />
+        <VoingBanner
+          v-if="election.data.voting_status != 'Unopened'"
+          :status="election.data.voting_status"
         />
       </div>
       <div v-if="candidates.data" class="mt-4 space-y-2">
@@ -52,6 +56,7 @@
 </template>
 <script setup>
 import Header from '@/components/Header.vue'
+import VoingBanner from '@/components/voting/VotingBanner.vue'
 import CandidateFormStatusBanner from '@/components/candidature/CandidateFormStatusBanner.vue'
 import CandidateCard from '@/components/candidature/CandidateCard.vue'
 import { createResource } from 'frappe-ui'

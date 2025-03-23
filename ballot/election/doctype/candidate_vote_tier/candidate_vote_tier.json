@@ -5,7 +5,7 @@
   "doctype": "DocType",
   "editable_grid": 1,
   "engine": "InnoDB",
-  "field_order": ["candidate"],
+  "field_order": ["rank", "candidate"],
   "fields": [
     {
       "fieldname": "candidate",
@@ -14,13 +14,18 @@
       "label": "Candidate",
       "options": "Election Candidate",
       "reqd": 1
+    },
+    {
+      "fieldname": "rank",
+      "fieldtype": "Int",
+      "label": "Rank"
     }
   ],
   "grid_page_length": 50,
   "index_web_pages_for_search": 1,
   "istable": 1,
   "links": [],
-  "modified": "2025-03-19 23:20:36.677886",
+  "modified": "2025-03-23 11:38:14.211964",
   "modified_by": "Administrator",
   "module": "Election",
   "name": "Candidate Vote Tier",

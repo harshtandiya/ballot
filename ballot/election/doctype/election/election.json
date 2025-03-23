@@ -1,149 +1,163 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "hash",
- "creation": "2024-09-24 17:50:43.538470",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "meta_section",
-  "column_break_chmz",
-  "slug",
-  "details_section",
-  "title",
-  "status",
-  "column_break_fwoq",
-  "organizing_team",
-  "section_break_gyas",
-  "description",
-  "vote_settings_tab",
-  "is_voting_live"
- ],
- "fields": [
-  {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Title",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_fwoq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "organizing_team",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Organizing Team",
-   "options": "Election Team",
-   "reqd": 1
-  },
-  {
-   "default": "Draft",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nLive\nCancelled\nConcluded",
-   "reqd": 1
-  },
-  {
-   "fieldname": "section_break_gyas",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text Editor",
-   "label": "Description"
-  },
-  {
-   "fieldname": "meta_section",
-   "fieldtype": "Section Break",
-   "label": "Meta"
-  },
-  {
-   "fieldname": "slug",
-   "fieldtype": "Data",
-   "label": "Slug",
-   "mandatory_depends_on": "eval:doc.status!='Draft'",
-   "unique": 1
-  },
-  {
-   "fieldname": "details_section",
-   "fieldtype": "Section Break",
-   "label": "Details"
-  },
-  {
-   "fieldname": "column_break_chmz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "vote_settings_tab",
-   "fieldtype": "Tab Break",
-   "label": "Vote Settings"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_voting_live",
-   "fieldtype": "Check",
-   "label": "Is Voting Live?"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-03-19 23:32:54.711187",
- "modified_by": "Administrator",
- "module": "Election",
- "name": "Election",
- "naming_rule": "Random",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "read": 1,
-   "role": "Election Team Member",
-   "write": 1
-  },
-  {
-   "read": 1,
-   "role": "All"
-  }
- ],
- "row_format": "Dynamic",
- "show_title_field_in_link": 1,
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [
-  {
-   "color": "Blue",
-   "title": "Draft"
-  },
-  {
-   "color": "Green",
-   "title": "Live"
-  },
-  {
-   "color": "Red",
-   "title": "Cancelled"
-  },
-  {
-   "color": "Gray",
-   "title": "Concluded"
-  }
- ],
- "title_field": "title",
- "track_changes": 1
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "hash",
+  "creation": "2024-09-24 17:50:43.538470",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "meta_section",
+    "column_break_chmz",
+    "slug",
+    "details_section",
+    "title",
+    "status",
+    "column_break_fwoq",
+    "organizing_team",
+    "section_break_gyas",
+    "description",
+    "vote_settings_tab",
+    "voting_status",
+    "vote_page_description",
+    "allowed_preference_count"
+  ],
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Title",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_fwoq",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "organizing_team",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Organizing Team",
+      "options": "Election Team",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nLive\nCancelled\nConcluded",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_break_gyas",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text Editor",
+      "label": "Description"
+    },
+    {
+      "fieldname": "meta_section",
+      "fieldtype": "Section Break",
+      "label": "Meta"
+    },
+    {
+      "fieldname": "slug",
+      "fieldtype": "Data",
+      "label": "Slug",
+      "mandatory_depends_on": "eval:doc.status!='Draft'",
+      "unique": 1
+    },
+    {
+      "fieldname": "details_section",
+      "fieldtype": "Section Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "column_break_chmz",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vote_settings_tab",
+      "fieldtype": "Tab Break",
+      "label": "Vote Settings"
+    },
+    {
+      "default": "Unopened",
+      "fieldname": "voting_status",
+      "fieldtype": "Select",
+      "label": "Voting Status",
+      "options": "Unopened\nLive\nClosed"
+    },
+    {
+      "fieldname": "vote_page_description",
+      "fieldtype": "Text Editor",
+      "label": "Vote Page Description"
+    },
+    {
+      "default": "1",
+      "fieldname": "allowed_preference_count",
+      "fieldtype": "Data",
+      "label": "Allowed Preference Count"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2025-03-22 09:55:49.838829",
+  "modified_by": "Administrator",
+  "module": "Election",
+  "name": "Election",
+  "naming_rule": "Random",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "read": 1,
+      "role": "Election Team Member",
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "All"
+    }
+  ],
+  "row_format": "Dynamic",
+  "show_title_field_in_link": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [
+    {
+      "color": "Blue",
+      "title": "Draft"
+    },
+    {
+      "color": "Green",
+      "title": "Live"
+    },
+    {
+      "color": "Red",
+      "title": "Cancelled"
+    },
+    {
+      "color": "Gray",
+      "title": "Concluded"
+    }
+  ],
+  "title_field": "title",
+  "track_changes": 1
 }

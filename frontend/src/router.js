@@ -101,6 +101,11 @@ const routes = [
     component: () => import('@/pages/election/CandidatureFormPublic.vue'),
   },
   {
+    path: '/election/:slug/vote',
+    name: 'Vote Form',
+    component: () => import('@/pages/voting/VotingPublic.vue'),
+  },
+  {
     path: '/submissions/:id',
     name: 'Edit Candiature Submission',
     component: () => import('@/pages/submissions/SubmissionEdit.vue'),

@@ -44,3 +44,31 @@ def get_candidate_details(candidate: str):
     )
 
     return form
+
+
+@frappe.whitelist()
+def get_candidate_list_for_voting(election: str):
+    """
+    Get the list of candidates for voting
+
+    args:
+        election(str): election ID
+
+    returns:
+        list of candidates
+    """
+
+    candidates = frappe.db.get_all(
+        "Election Candidate Application",
+        {"election": election, "status": "Accepted"},
+        ["full_name", "designation", "organization", "photo", "submission_meta", "name"],
+        page_length=999,
+        order_by="creation",
+    )
+
+    for candidate in candidates:
+        candidate["candidate_id"] = frappe.db.get_value(
+            "Election Candidate", {"linked_application": candidate["name"]}, "name"
+        )
+
+    return candidates

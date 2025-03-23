@@ -16,7 +16,17 @@ def get_election_from_slug(slug: str) -> dict:
     election = frappe.db.get_value(
         "Election",
         {"slug": slug},
-        ["name", "slug", "title", "status", "organizing_team", "description"],
+        [
+            "name",
+            "slug",
+            "title",
+            "status",
+            "organizing_team",
+            "description",
+            "voting_status",
+            "vote_page_description",
+            "allowed_preference_count",
+        ],
         as_dict=True,
     )
 
