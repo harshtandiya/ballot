@@ -32,7 +32,7 @@
         ></div>
       </div>
       <hr class="my-3" />
-      <div v-if="election.data?.voting_status == 'Live' && !hasVoted">
+      <div v-if="election.data?.voting_status == 'Live' && !hasVoted.data">
         <h3 class="text-lg my-2">
           Please select
           <span class="font-semibold">
@@ -113,7 +113,7 @@
       <div v-else>
         <div class="m-auto p-4 gap-2 flex flex-col items-center justify-center">
           <IconCircleOff />
-          <h3 v-if="hasVoted">You have already voted for this election</h3>
+          <h3 v-if="hasVoted.data">You have already voted for this election</h3>
           <h3 v-else class="text-lg my-2">
             Voting is {{ election.data?.voting_status }}. Stay tuned for
             updates!
@@ -207,7 +207,7 @@ const hasVoted = createResource({
       doctype: 'Candidate Vote',
       filters: {
         vote_by: session.user,
-        election: election.data?.name,
+        election: election.data.name,
       },
     }
   },
