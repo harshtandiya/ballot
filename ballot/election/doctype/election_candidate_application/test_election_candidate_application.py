@@ -125,14 +125,14 @@ class TestElectionCandidateApplication(IntegrationTestCase):
         with self.assertRaises(frappe.PermissionError):
             self.application.save()
 
-        frappe.set_user('Administrator')
+        frappe.set_user("Administrator")
         _team.delete(force=1)
 
     def test_create_accepted_application(self):
         # Given a candidate: CANDIDATE_1
         # When the candidate creates an application for an election with status "Accepted"
         # Then the application should not be created
-          
+
         frappe.set_user(CANDIDATE_2)
         application = frappe.get_doc(
             {
@@ -179,13 +179,13 @@ class TestElectionCandidateApplication(IntegrationTestCase):
                 "nomination_form": self.form.name,
                 "full_name": fake.name(),
                 "email": fake.email(),
-                "status": "Pending"
+                "status": "Pending",
             }
         )
         application.insert()
 
         application.reload()
-        self.assertTrue(application.status == 'Accepted')
+        self.assertTrue(application.status == "Accepted")
 
-        frappe.set_user('Administrator')
+        frappe.set_user("Administrator")
         application.delete(force=1)

@@ -21,7 +21,7 @@ class ElectionCandidateApplication(Document):
         )
 
         if accept_incoming:
-            self.status = 'Accepted'
+            self.status = "Accepted"
             self.save(ignore_permissions=True)
 
     def before_save(self):

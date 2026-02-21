@@ -25,16 +25,15 @@ class ElectionNominationForm(Document):
         else:
             frappe.throw("fields_meta should be a JSON string or a list")
 
-
         for field in fields:
             self.append(
                 "form_question",
                 {
-                    "label": field.get('label'),
-                    "fieldtype": field.get('fieldtype'),
-                    "fieldname": field.get('fieldname'),
-                    "mandatory": field.get('mandatory'),
-                    "options": field.get('options'),
+                    "label": field.get("label"),
+                    "fieldtype": field.get("fieldtype"),
+                    "fieldname": field.get("fieldname"),
+                    "mandatory": field.get("mandatory"),
+                    "options": field.get("options"),
                 },
             )
 

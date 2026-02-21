@@ -65,7 +65,7 @@ class TestElectionNominationForm(IntegrationTestCase):
                     "options": "",
                 }
             )
-        
+
         self.form.fields_meta = json.dumps(fields_meta)
         self.form.save()
 
